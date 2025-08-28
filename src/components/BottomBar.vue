@@ -31,21 +31,22 @@ function isActive(path) {
 <style scoped>
 .bottom-bar {
   position: fixed;
-  left: 50%;
-  bottom: 24px;
-  transform: translateX(-50%);
+  right: 32px;         /* Bottom right position */
+  bottom: 32px;
+  transform: none;     /* No horizontal centering */
   background: #fff;
-  box-shadow: 0 2px 24px rgba(0,0,0,0.12);
+  box-shadow: 0 2px 24px rgba(0,0,0,0.13);
   border-radius: 999px;
   display: flex;
-  gap: 0.2rem;
-  padding: 0.2rem 1rem;
+  gap: 0.5rem;
+  padding: 0.3rem 1.3rem;
   z-index: 100;
   min-width: 240px;
-  max-width: 93vw;
-  height: 48px;
+  max-width: 96vw;
+  height: 56px;
   align-items: center;
   justify-content: center;
+  transition: box-shadow 0.18s;
 }
 
 .bar-item {
@@ -87,7 +88,8 @@ function isActive(path) {
 
 @media (max-width: 500px) {
   .bottom-bar {
-    bottom: 10px;
+    right: 10px;
+    bottom: 12px;
     min-width: 150px;
     padding: 0.2rem 0.45rem;
     height: 44px;
