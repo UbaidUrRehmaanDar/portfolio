@@ -14,8 +14,14 @@
                     <span class="back-text">Back</span>
                 </button>
                 <h1 class="pink-title">ABOUT ME</h1>
+                
+                <!-- Personal Image -->
+                <div class="profile-image-container">
+                    <img src="/images/portfolio/my-image-1.jpg" alt="Ubaid Ur Rehman Dar" class="profile-image" />
+                </div>
+                
                 <p>
-                    I’m Ubaid Ur Rehman Dar, a 4th semester BSCS student at Riphah International University with a deep
+                    I'm Ubaid Ur Rehman Dar, a 4th semester BSCS student at Riphah International University with a deep
                     passion for frontend development and UI/UX design. While I began with C++ and Java, my main focus now is
                     building modern, creative, and user-friendly web experiences using React, Vue, and the MERN stack.
                 </p>
@@ -25,13 +31,13 @@
                     creative side of design before translating it into functional, responsive web apps.
                 </p>
                 <p>
-                    I’ve worked on academic projects such as a Smart RC Car and Smart City Dashboard, as well as
+                    I've worked on academic projects such as a Smart RC Car and Smart City Dashboard, as well as
                     personal projects like <strong>Chakras</strong>, a full-stack music app inspired by Spotify, and
                     <strong>Rawty Shawty</strong>, a Vue-based restaurant website showcasing an interactive menu and
                     ordering flow.
                 </p>
                 <p>
-                    For me, frontend is where creativity meets technology, and I’m excited to keep growing in UI/UX and
+                    For me, frontend is where creativity meets technology, and I'm excited to keep growing in UI/UX and
                     development through internships and real-world projects.
                 </p>
                 <div class="links">
@@ -79,6 +85,27 @@ function goHome() {
     margin-bottom: 1.5rem;
 }
 
+.profile-image-container {
+    display: flex;
+    justify-content: center;
+    margin: 1rem 0 2rem 0;
+}
+
+.profile-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 20px;
+    object-fit: cover;
+    box-shadow: 0 15px 50px rgba(255, 126, 185, 0.2);
+    border: 3px solid rgba(255, 126, 185, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-image:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 60px rgba(255, 126, 185, 0.3);
+}
+
 p {
     font-size: 1.2rem;
     margin-bottom: 0.3rem;
@@ -110,31 +137,22 @@ p {
     background: none;
     border: none;
     color: #FF7EB9;
-    font-size: 1.1rem;
-    font-weight: 700;
     cursor: pointer;
-    margin-bottom: 1.2rem;
-    padding: 0.3rem 0.7rem 0.3rem 0;
+    gap: 0.5rem;
     transition: color 0.2s;
-    outline: none;
+    margin-bottom: 2rem;
     position: absolute;
+    top: -0.5rem;
     left: 0;
-    top: 0;
+    z-index: 10;
 }
 
 .back-btn:hover {
     color: #000;
 }
 
-.icon {
-    display: flex;
-    align-items: center;
-    margin-right: 0.4em;
-}
-
 .back-text {
-    font-size: 1.1rem;
-    font-weight: 700;
+    font-family: inherit;
 }
 
 /* Animation */
@@ -150,5 +168,37 @@ p {
 .fade-up-leave-to {
     opacity: 0;
     transform: translateY(-40px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .about-content {
+        padding: 1.5rem;
+    }
+    
+    .pink-title {
+        font-size: 3rem;
+    }
+    
+    .profile-image {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .links {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-image {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .pink-title {
+        font-size: 2.5rem;
+    }
 }
 </style>

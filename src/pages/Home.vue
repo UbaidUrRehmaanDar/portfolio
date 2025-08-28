@@ -1,9 +1,9 @@
 <template>
   <section class="hero">
     <header class="hero__row">
-      <span class="hero__by">By Ubaid Ur Rehman Dar</span>
-      <span class="hero__mid">Portfolio Presentation</span>
-      <span class="hero__role">Frontend Developer</span>
+      <span class="hero__by gradient-hover">By Ubaid Ur Rehman Dar</span>
+      <span class="hero__mid gradient-hover">Portfolio Presentation</span>
+      <span class="hero__role gradient-hover">Frontend Developer</span>
     </header>
 
     <!-- Large Script word -->
@@ -19,7 +19,7 @@
 
     <!-- Bottom left description -->
     <div class="hero__desc">
-      <span class="desc-animated">
+      <span class="desc-animated gradient-hover">
         Modern frontend developer &amp; UI/UX enthusiast. Turning creative ideas
         into practical, beautiful web experiences.
       </span>
@@ -43,6 +43,7 @@ import BottomBar from "../components/BottomBar.vue";
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Dawning+of+a+New+Day&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap");
 
 .hero {
   position: relative;
@@ -52,7 +53,7 @@ import BottomBar from "../components/BottomBar.vue";
   padding: 30px clamp(32px, 5vw, 92px) 60px;
   box-sizing: border-box;
   overflow: hidden;
-  font-family: "TTFors", "Helvetica Neue", Arial, sans-serif;
+  font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -66,7 +67,8 @@ import BottomBar from "../components/BottomBar.vue";
   display: flex;
   justify-content: space-between;
   font-size: clamp(0.7rem, 0.5rem + 0.45vw, 0.95rem);
-  font-weight: 500;
+  font-weight: 700;
+  font-family: "Montserrat", sans-serif;
   letter-spacing: 0.25px;
   color: #141414;
   z-index: 5;
@@ -148,32 +150,76 @@ import BottomBar from "../components/BottomBar.vue";
   max-width: 420px;
   display: flex;
   align-items: flex-start;
-  font-family: "TTFors", "Helvetica Neue", Arial, sans-serif;
+  font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
 }
 
 .desc-animated {
   display: inline-block;
   font-weight: 600;
+  font-family: "Montserrat", sans-serif;
   font-size: 0.97rem;
   letter-spacing: 0.01em;
   line-height: 1.5;
+  color: #141414;
+}
+
+/* GLOBAL GRADIENT HOVER EFFECT */
+.gradient-hover {
   cursor: pointer;
-
-  background: linear-gradient(90deg, #ff7eb9, #ff99c9, #ff7eb9);
-  background-size: 200% 100%;
-  background-position: 0 0;
-
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  background: linear-gradient(
+    135deg,
+    #141414 0%,
+    #141414 50%,
+    #ff7eb9 50%,
+    #ff99c9 60%,
+    #ffb3d9 70%,
+    #ff7eb9 80%,
+    #e056a0 100%
+  );
+  background-size: 200% 200%;
+  background-position: 0% 50%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-
-  transition: background-position 0.8s ease;
+  background-clip: text;
+  position: relative;
 }
 
-.desc-animated:hover {
-  background-position: 100% 0;
+.gradient-hover::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(
+    135deg,
+    transparent 0%,
+    transparent 50%,
+    rgba(255, 126, 185, 0.1) 50%,
+    rgba(255, 153, 201, 0.15) 60%,
+    rgba(255, 179, 217, 0.1) 70%,
+    rgba(255, 126, 185, 0.1) 80%,
+    rgba(224, 86, 160, 0.1) 100%
+  );
+  background-size: 200% 200%;
+  background-position: 0% 50%;
+  border-radius: 8px;
+  opacity: 0;
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  z-index: -1;
 }
 
+.gradient-hover:hover {
+  background-position: 100% 50%;
+  transform: translateY(-1px);
+  text-shadow: 0 4px 12px rgba(255, 126, 185, 0.3);
+}
 
+.gradient-hover:hover::before {
+  background-position: 100% 50%;
+  opacity: 1;
+}
 
 @media (max-width: 900px) {
   .hero__img {

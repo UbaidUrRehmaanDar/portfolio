@@ -16,7 +16,7 @@
           </span>
           <span class="back-text">Back</span>
         </button>
-        <h1 class="pink-title">Contact Us</h1>
+        <h1 class="pink-title">CONTACT US</h1>
         <p class="desc">Get in touch with me! I'd love to hear from you.</p>
         <div class="info-list">
           <div class="info-item">
@@ -39,7 +39,7 @@
         </div>
         <div class="website-note">
           <span class="material-icons info-icon">public</span>
-          <span class="info-label">My Website</span>
+          <span class="info-label">My Github</span>
           <span class="info-value">Your trusted partner for amazing experiences.</span>
         </div>
         <footer class="contact-footer">
