@@ -25,7 +25,7 @@
                            featuring user authentication, playlist creation, and a clean, intuitive interface for music discovery.</p>
                         <div class="project-links">
                             <button @click="openGallery('chakras')" class="gallery-btn">View Images</button>
-                            <a href="https://github.com/UbaidUrRehmaanDar/chakras" target="_blank" rel="noopener">View Code</a>
+                            <a href="https://github.com/UbaidUrRehmaanDar/khakras" target="_blank" rel="noopener">View Code</a>
                         </div>
                     </div>
 
@@ -47,7 +47,7 @@
                         <div class="project-links">
                             <button @click="openGallery('sccd')" class="gallery-btn">View Images</button>
                             <a href="https://smart-city-dashboard.vercel.app/" target="_blank" rel="noopener">Live Demo</a>
-                            <a href="https://github.com/UbaidUrRehmaanDar/smart-city-dashboard" target="_blank" rel="noopener">View Code</a>
+                            <a href="https://github.com/UbaidUrRehmaanDar/sccd" target="_blank" rel="noopener">View Code</a>
                         </div>
                     </div>
 

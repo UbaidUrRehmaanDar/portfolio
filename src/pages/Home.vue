@@ -6,15 +6,18 @@
       <span class="hero__role gradient-hover">Frontend Developer</span>
     </header>
 
-    <!-- Large Script word -->
-    <div class="hero__script">UBAID UR REHMAN DAR</div>
+    <!-- Large Script word (desktop: full name, mobile: short) -->
+    <div class="hero__script" aria-label="UBAID UR REHMAN DAR">
+      <span class="name-full">UBAID UR REHMAN DAR</span>
+      <span class="name-short" aria-hidden="true">REHMAN</span>
+    </div>
 
     <!-- Big pink word -->
     <h1 class="hero__block" aria-label="Portfolio">PORTFOLIO</h1>
 
     <!-- PNG image overlays "PORTFOLIO" -->
     <div class="hero__img">
-      <img src="\images\portfolio\portfolio.png" alt="Portfolio" />
+      <img src="/images/portfolio/portfolio.png" alt="Portfolio" />
     </div>
 
     <!-- Bottom left description -->
@@ -71,7 +74,7 @@ import BottomBar from "../components/BottomBar.vue";
   font-family: "Montserrat", sans-serif;
   letter-spacing: 0.25px;
   color: #141414;
-  z-index: 5;
+  z-index: 50;
   white-space: nowrap;
 }
 
@@ -96,6 +99,16 @@ import BottomBar from "../components/BottomBar.vue";
     0 1px 3px rgba(0, 0, 0, 0.25);
 }
 
+/* Name variants */
+.name-full {
+  display: inline-block;
+}
+
+.name-short {
+  display: none;
+}
+
+/* Big block word */
 .hero__block {
   position: absolute;
   inset: 0;
@@ -163,9 +176,10 @@ import BottomBar from "../components/BottomBar.vue";
   color: #141414;
 }
 
-/* GLOBAL GRADIENT HOVER EFFECT */
+/* Gradient hover (unchanged colors) + fallback */
 .gradient-hover {
   cursor: pointer;
+  color: #141414; /* fallback if background-clip fails */
   transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   background: linear-gradient(
     135deg,
@@ -180,9 +194,16 @@ import BottomBar from "../components/BottomBar.vue";
   background-size: 200% 200%;
   background-position: 0% 50%;
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   background-clip: text;
+  -webkit-text-fill-color: transparent;
   position: relative;
+}
+
+@supports not ((-webkit-background-clip: text) or (background-clip: text)) {
+  .gradient-hover {
+    background: none;
+    -webkit-text-fill-color: initial;
+  }
 }
 
 .gradient-hover::before {
@@ -221,54 +242,67 @@ import BottomBar from "../components/BottomBar.vue";
   opacity: 1;
 }
 
-@media (max-width: 900px) {
+/* ---------- RESPONSIVE TWEAKS ---------- */
+
+/* Pre-mobile downscale to protect header visibility */
+@media (max-width: 740px) {
+  .hero__block {
+    font-size: clamp(4.2rem, 18vw, 7rem);
+    padding-bottom: clamp(200px, 40vh, 260px);
+  }
+  .hero__script {
+    font-size: clamp(3rem, 16vw, 5.5rem);
+  }
   .hero__img {
-    width: 220px;
-    top: 170px;
-  }
-  .hero__img img {
-    width: 220px;
-  }
-  .desc-animated {
-    font-size: 0.87rem;
-  }
-  .hero__desc {
-    max-width: 90vw;
+    top: 160px;
   }
 }
 
+/* Mobile variant: swap to short name + reduce size */
 @media (max-width: 640px) {
   .hero {
     padding: 26px 22px 56px;
   }
 
   .hero__row {
-    top: 22px;
+    top: 14px;
     left: 22px;
     right: 22px;
     flex-wrap: wrap;
-    gap: 6px 18px;
-    font-size: 0.66rem;
+    gap: 6px 12px;
+    font-size: 0.62rem;
+    white-space: normal;
   }
 
   .hero__script {
-    font-size: clamp(3.6rem, 22vw, 7rem);
-    top: 22vh;
-    letter-spacing: 0.06em;
+    top: 24vh;
+    /* overall scale down for mobile */
+    font-size: clamp(2.8rem, 18vw, 4.2rem);
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+  }
+
+  .name-full {
+    display: none;
+  }
+
+  .name-short {
+    display: inline-block;
   }
 
   .hero__block {
-    font-size: clamp(3.6rem, 24vw, 7.2rem);
-    padding-bottom: clamp(240px, 54vh, 360px);
+    font-size: clamp(3.2rem, 22vw, 5.4rem);
+    padding-bottom: clamp(230px, 50vh, 320px);
+    white-space: nowrap;
   }
 
   .hero__img {
-    width: 120px;
-    top: 130px;
+    width: 140px;
+    top: 150px;
   }
 
   .hero__img img {
-    width: 120px;
+    width: 140px;
   }
 
   .hero__desc {
@@ -280,4 +314,27 @@ import BottomBar from "../components/BottomBar.vue";
     font-size: 0.78rem;
   }
 }
+
+/* Ultra small safeguard */
+@media (max-width: 380px) {
+  .hero__row {
+    font-size: 0.58rem;
+  }
+  .hero__block {
+    font-size: clamp(2.6rem, 24vw, 4.2rem);
+    padding-bottom: clamp(250px, 56vh, 340px);
+  }
+  .hero__script {
+    font-size: clamp(2.4rem, 22vw, 3.6rem);
+    top: 25vh;
+  }
+  .hero__img {
+    width: 120px;
+    top: 145px;
+  }
+  .hero__img img {
+    width: 120px;
+  }
+}
+
 </style>
