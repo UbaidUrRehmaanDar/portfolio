@@ -14,7 +14,7 @@
 
     <!-- PNG image overlays "PORTFOLIO" -->
     <div class="hero__img">
-      <img src="@/assets/portfolio.png" alt="Portfolio" />
+      <img src="\images\portfolio\portfolio.png" alt="Portfolio" />
     </div>
 
     <!-- Bottom left description -->

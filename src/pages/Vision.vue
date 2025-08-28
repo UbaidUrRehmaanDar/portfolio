@@ -1,6 +1,6 @@
 <template>
     <Frame leftHeader="By Ubaid Ur Rehman Dar" centerHeader="Portfolio Presentation" rightHeader="Frontend Developer"
-        footerText="04" bgClass="bg-white">
+        footerText="04" bgClass="bg-light">
         <transition name="fade-up">
             <div class="vision-content" v-if="show">
                 <button class="back-btn" @click="goHome" aria-label="Back to Home">
@@ -15,12 +15,12 @@
                 <h1 class="pink-title">VISION</h1>
                 <p>
                     I believe technology should feel natural — not just functional, but intuitive, creative, and human.
-                    My vision as a developer is to design and build digital experiences that don’t just solve problems,
+                    My vision as a developer is to design and build digital experiences that don't just solve problems,
                     but also inspire and connect people.
                 </p>
                 <p>
                     Frontend development and UI/UX design are where I find my spark: blending code with creativity,
-                    shaping ideas into clean interfaces, and crafting user journeys that feel effortless. Whether it’s
+                    shaping ideas into clean interfaces, and crafting user journeys that feel effortless. Whether it's
                     experimenting with new frameworks, sketching concepts in Figma, or bringing designs to life in React
                     or Vue, I want every project to reflect clarity, simplicity, and imagination.
                 </p>
@@ -29,7 +29,7 @@
                     platforms that make life a little easier and a little more beautiful.
                 </p>
                 <blockquote>
-                    <em>“Design is intelligence made visible.”</em>
+                    <em>"Design is intelligence made visible."</em>
                 </blockquote>
             </div>
         </transition>
@@ -100,37 +100,47 @@ blockquote {
     transform: translateY(-40px);
 }
 
-/* Back button styles */
+/* Back button styles - CONSISTENT WITH PROJECTS */
 .back-btn {
-    display: flex;
-    align-items: center;
-    background: none;
+    position: absolute;
+    top: -0.5rem;
+    left: 0;
+    background: transparent;
     border: none;
     color: #FF7EB9;
-    font-size: 1.1rem;
-    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
     cursor: pointer;
-    margin-bottom: 1.2rem;
-    padding: 0.3rem 0.7rem 0.3rem 0;
-    transition: color 0.2s;
-    outline: none;
-    position: absolute;
-    left: 0;
-    top: 0;
+    padding: 0.5rem;
+    border-radius: 8px;
+    transition: background-color 0.2s;
 }
 
 .back-btn:hover {
-    color: #000;
-}
-
-.icon {
-    display: flex;
-    align-items: center;
-    margin-right: 0.4em;
+    background: rgba(255, 126, 185, 0.1);
 }
 
 .back-text {
-    font-size: 1.1rem;
-    font-weight: 700;
+    font-family: inherit;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .vision-content {
+        padding: 1.5rem;
+    }
+    
+    .pink-title {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .pink-title {
+        font-size: 2.5rem;
+    }
 }
 </style>

@@ -5,7 +5,6 @@
             <div class="about-content" v-if="show">
                 <button class="back-btn" @click="goHome" aria-label="Back to Home">
                     <span class="icon" aria-hidden="true">
-                        <!-- SVG left arrow icon -->
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                             <path d="M15 18l-6-6 6-6" stroke="#FF7EB9" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round" />
@@ -41,8 +40,8 @@
                     development through internships and real-world projects.
                 </p>
                 <div class="links">
-                    <a href="https://github.com/UbaidUrRehmaanDar" target="_blank">GitHub</a>
-                    <a href="https://www.linkedin.com/in/ubaid-ur-rehman-dar-74a56429a/" target="_blank">LinkedIn</a>
+                    <a href="https://github.com/UbaidUrRehmaanDar" target="_blank" rel="noopener" class="link-btn">GitHub</a>
+                    <a href="https://www.linkedin.com/in/ubaid-ur-rehman-dar-74a56429a/" target="_blank" rel="noopener" class="link-btn">LinkedIn</a>
                 </div>
             </div>
         </transition>
@@ -114,41 +113,51 @@ p {
 .links {
     margin-top: 2rem;
     display: flex;
-    gap: 2rem;
+    gap: 1rem;
+    flex-wrap: wrap;
 }
 
-.links a {
-    font-size: 1.15rem;
-    font-weight: 700;
+/* EXACT BUTTON STYLING FROM PROJECTS PAGE */
+.link-btn {
     color: #FF7EB9;
-    transition: color 0.2s;
-    border-bottom: 2px solid #FF7EB9;
-    padding-bottom: 2px;
-}
-
-.links a:hover {
-    color: #000;
-    border-bottom: 2px solid #000;
-}
-
-.back-btn {
-    display: flex;
-    align-items: center;
-    background: none;
-    border: none;
-    color: #FF7EB9;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.4rem 0.8rem;
+    border: 2px solid #FF7EB9;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    background: transparent;
     cursor: pointer;
-    gap: 0.5rem;
-    transition: color 0.2s;
-    margin-bottom: 2rem;
+    font-family: inherit;
+}
+
+.link-btn:hover {
+    background: #FF7EB9;
+    color: white;
+}
+
+/* EXACT BACK BUTTON STYLING FROM PROJECTS PAGE */
+.back-btn {
     position: absolute;
     top: -0.5rem;
     left: 0;
-    z-index: 10;
+    background: transparent;
+    border: none;
+    color: #FF7EB9;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 8px;
+    transition: background-color 0.2s;
 }
 
 .back-btn:hover {
-    color: #000;
+    background: rgba(255, 126, 185, 0.1);
 }
 
 .back-text {
@@ -187,7 +196,10 @@ p {
     
     .links {
         flex-direction: column;
-        gap: 1rem;
+    }
+    
+    .link-btn {
+        text-align: center;
     }
 }
 

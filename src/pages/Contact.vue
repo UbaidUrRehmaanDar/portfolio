@@ -16,7 +16,7 @@
           </span>
           <span class="back-text">Back</span>
         </button>
-        <h1 class="pink-title">CONTACT US</h1>
+        <h1 class="pink-title">Contact Us</h1>
         <p class="desc">Get in touch with me! I'd love to hear from you.</p>
         <div class="info-list">
           <div class="info-item">
@@ -36,10 +36,17 @@
               <a href="mailto:ubaidurrehmaan2004@gmail.com">ubaidurrehmaan2004@gmail.com</a><br>
             </span>
           </div>
+          <div class="info-item">
+            <span class="material-icons info-icon">code</span>
+            <span class="info-label">GitHub</span>
+            <span class="info-value">
+              <a href="https://github.com/UbaidUrRehmaanDar" target="_blank" rel="noopener noreferrer">github.com/UbaidUrRehmaanDar</a>
+            </span>
+          </div>
         </div>
         <div class="website-note">
           <span class="material-icons info-icon">public</span>
-          <span class="info-label">My Github</span>
+          <span class="info-label">My Website</span>
           <span class="info-value">Your trusted partner for amazing experiences.</span>
         </div>
         <footer class="contact-footer">
@@ -78,114 +85,140 @@ function goHome() {
   gap: 1.4rem;
   position: relative;
 }
+
 .pink-title {
   font-size: 3rem;
   font-weight: 900;
   color: #FF7EB9;
   margin-bottom: 1.2rem;
 }
+
 .desc {
   font-size: 1.17rem;
   margin-bottom: 1rem;
 }
+
 .info-list {
   display: flex;
   flex-direction: column;
-  gap: 1.2rem;
-  margin-bottom: 0.6rem;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
 }
+
 .info-item {
   display: flex;
-  align-items: flex-start;
-  gap: 0.9rem;
-  background: rgba(255,126,185,0.06);
-  border-radius: 11px;
-  padding: 1rem 1.2rem;
-  font-size: 1.08rem;
-  box-shadow: 0 1px 6px rgba(0,0,0,0.04);
-  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid rgba(255, 126, 185, 0.1);
 }
+
 .info-icon {
-  font-size: 1.8em;
   color: #FF7EB9;
-  margin-right: 0.3em;
-  flex-shrink: 0;
+  font-size: 1.5rem;
+  width: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
 .info-label {
-  font-weight: 700;
-  margin-right: 0.7em;
-  min-width: 85px;
-  color: #222;
+  font-weight: 600;
+  color: #333;
+  min-width: 80px;
+  font-size: 1rem;
 }
+
+.info-value {
+  font-size: 1rem;
+  color: #666;
+}
+
 .info-value a {
   color: #FF7EB9;
-  text-decoration: underline;
-  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
+
 .info-value a:hover {
-  color: #000;
+  color: #e056a0;
+  text-decoration: underline;
 }
+
 .website-note {
   display: flex;
   align-items: center;
-  gap: 0.9rem;
-  margin-top: 0.7rem;
-  background: rgba(255,126,185,0.06);
-  border-radius: 11px;
-  padding: 0.9rem 1.2rem;
-  font-size: 1.08rem;
-  box-shadow: 0 1px 6px rgba(0,0,0,0.04);
-}
-.contact-footer {
-  text-align: center;
-  color: #FF7EB9;
-  font-size: 1rem;
-  margin-top: 2.2rem;
-  font-weight: 700;
-  letter-spacing: 0.03em;
+  gap: 1rem;
+  padding: 1.2rem 0;
+  border-top: 2px solid rgba(255, 126, 185, 0.2);
+  margin-top: 1rem;
 }
 
-/* Back button styles */
+.contact-footer {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 126, 185, 0.15);
+  text-align: center;
+  color: #888;
+  font-size: 0.9rem;
+}
+
+/* Back button styles - CONSISTENT WITH PROJECTS */
 .back-btn {
-  display: flex;
-  align-items: center;
-  background: none;
+  position: absolute;
+  top: -0.5rem;
+  left: 0;
+  background: transparent;
   border: none;
   color: #FF7EB9;
-  font-size: 1.1rem;
-  font-weight: 700;
-  cursor: pointer;
-  margin-bottom: 1.2rem;
-  padding: 0.3rem 0.7rem 0.3rem 0;
-  transition: color 0.2s;
-  outline: none;
-  position: absolute;
-  left: 0;
-  top: 0;
-}
-.back-btn:hover {
-  color: #000;
-}
-.icon {
   display: flex;
   align-items: center;
-  margin-right: 0.4em;
+  gap: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 8px;
+  transition: background-color 0.2s;
 }
+
+.back-btn:hover {
+  background: rgba(255, 126, 185, 0.1);
+}
+
 .back-text {
-  font-size: 1.1rem;
-  font-weight: 700;
+  font-family: inherit;
 }
 
 /* Animation */
 .fade-up-enter-active {
-  transition: all 0.35s cubic-bezier(.48,.05,.58,.99);
+  transition: all 0.35s cubic-bezier(.48, .05, .58, .99);
 }
+
 .fade-up-enter-from {
   opacity: 0;
   transform: translateY(40px);
 }
-.fade-up-leave-to {
-  opacity: 0;
-  transform: translateY(-40px);
+
+/* Responsive */
+@media (max-width: 640px) {
+  .contact-content {
+    padding: 1.5rem 1rem 2.5rem 1rem;
+  }
+  
+  .pink-title {
+    font-size: 2.5rem;
+  }
+  
+  .info-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .info-label {
+    min-width: auto;
+    font-weight: 700;
+  }
 }
 </style>
