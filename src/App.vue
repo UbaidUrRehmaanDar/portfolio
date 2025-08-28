@@ -1,11 +1,24 @@
-<script setup></script>
-
 <template>
-  <h1>You did it!</h1>
-  <p>
-    Visit <a href="https://vuejs.org/" target="_blank" rel="noopener">vuejs.org</a> to read the
-    documentation
-  </p>
+  <div id="app">
+    <transition name="slide-fade" mode="out-in">
+      <router-view />
+    </transition>
+  </div>
 </template>
 
-<style scoped></style>
+<style>
+.slide-fade-enter-active,
+.slide-fade-leave-active {
+  transition: all 0.6s cubic-bezier(.45,.03,.52,.96);
+}
+
+.slide-fade-enter-from {
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+.slide-fade-leave-to {
+  opacity: 0;
+  transform: translateY(-50px);
+}
+</style>
