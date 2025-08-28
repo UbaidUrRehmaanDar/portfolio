@@ -17,7 +17,7 @@
           <span class="back-text">Back</span>
         </button>
         <h1 class="pink-title">Contact Us</h1>
-        <p class="desc">Get in touch with Rawty Shawty! We'd love to hear from you.</p>
+        <p class="desc">Get in touch with me! I'd love to hear from you.</p>
         <div class="info-list">
           <div class="info-item">
             <span class="material-icons info-icon">location_on</span>
@@ -43,7 +43,7 @@
           <span class="info-value">Your trusted partner for amazing experiences.</span>
         </div>
         <footer class="contact-footer">
-          © 2025 Rawty Shawty. All rights reserved.
+          © 2025 Ubaid Ur Rehmaan Dar. All rights reserved.
         </footer>
       </div>
     </transition>

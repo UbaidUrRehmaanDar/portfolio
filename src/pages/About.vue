@@ -16,7 +16,7 @@
                 <h1 class="pink-title">ABOUT ME</h1>
                 <p>
                     I’m Ubaid Ur Rehman Dar, a 4th semester BSCS student at Riphah International University with a deep
-                    passion for frontend development and UI/UX design. While I began with C++, my main focus now is
+                    passion for frontend development and UI/UX design. While I began with C++ and Java, my main focus now is
                     building modern, creative, and user-friendly web experiences using React, Vue, and the MERN stack.
                 </p>
                 <p>
