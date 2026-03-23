@@ -61,6 +61,14 @@
                             <button @click="openDocumentation" class="gallery-btn">Documentation</button>
                         </div>
                     </div>
+
+                    <div class="project-card">
+                        <h3>FindIt</h3>
+                        <p>A comprehensive UI/UX design prototype created in Figma. Designed with a modern, clean aesthetic, it focuses on intuitive user navigation and seamless discovery experiences.</p>
+                        <div class="project-links">
+                            <a href="https://www.figma.com/proto/VIB9uBrfPjSaRJY0i5S1MF/FindIt---Project?node-id=0-1&t=dCQfcffLf7TFxW8i-1" target="_blank" rel="noopener">View Prototype</a>
+                        </div>
+                    </div>
                 </div>
 
                 <p class="bottom-note">
