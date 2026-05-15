@@ -31,11 +31,18 @@ function isActive(path) {
 <style scoped>
 .bottom-bar {
   position: fixed;
-  right: 32px;         /* Bottom right position */
+  right: 32px;
   bottom: 32px;
-  transform: none;     /* No horizontal centering */
-  background: #fff;
-  box-shadow: 0 2px 24px rgba(0,0,0,0.13);
+  transform: none;
+  /* ── Glassmorphism ── */
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(18px) saturate(180%);
+  -webkit-backdrop-filter: blur(18px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  box-shadow:
+    0 8px 32px rgba(255, 126, 185, 0.12),
+    0 2px 8px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
   border-radius: 999px;
   display: flex;
   gap: 0.5rem;
@@ -46,7 +53,15 @@ function isActive(path) {
   height: 56px;
   align-items: center;
   justify-content: center;
-  transition: box-shadow 0.18s;
+  transition: box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.bottom-bar:hover {
+  background: rgba(255, 255, 255, 0.68);
+  box-shadow:
+    0 12px 40px rgba(255, 126, 185, 0.18),
+    0 4px 12px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95);
 }
 
 .bar-item {

@@ -52,7 +52,12 @@ import BottomBar from "../components/BottomBar.vue";
   position: relative;
   width: 100%;
   min-height: 100vh;
-  background: #f6f6f6;
+  /* Soft pink-tinted gradient gives the glass pill depth to frost against */
+  background:
+    radial-gradient(ellipse 70% 55% at 65% 38%, rgba(255, 126, 185, 0.13) 0%, transparent 68%),
+    radial-gradient(ellipse 50% 45% at 18% 75%, rgba(255, 180, 220, 0.09) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 35% at 85% 85%, rgba(255, 126, 185, 0.06) 0%, transparent 55%),
+    #f6f6f6;
   padding: 30px clamp(32px, 5vw, 92px) 60px;
   box-sizing: border-box;
   overflow: hidden;
@@ -152,6 +157,7 @@ import BottomBar from "../components/BottomBar.vue";
   border-radius: 18px;
   box-shadow: 0 6px 32px rgba(255, 126, 185, 0.1);
   background: transparent;
+  mix-blend-mode: multiply;
 }
 
 /* Bottom left description */
@@ -176,27 +182,32 @@ import BottomBar from "../components/BottomBar.vue";
   color: #141414;
 }
 
-/* Gradient hover (unchanged colors) + fallback */
+/* ── Enhanced glass-style text hover ── */
 .gradient-hover {
   cursor: pointer;
-  color: #141414; /* fallback if background-clip fails */
-  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  color: #141414;
+  transition:
+    background-position 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+    letter-spacing 0.35s ease,
+    filter 0.35s ease;
   background: linear-gradient(
     135deg,
     #141414 0%,
-    #141414 50%,
-    #ff7eb9 50%,
-    #ff99c9 60%,
-    #ffb3d9 70%,
-    #ff7eb9 80%,
+    #141414 45%,
+    #ff7eb9 45%,
+    #ff99c9 58%,
+    #ffb3d9 68%,
+    #ff7eb9 78%,
     #e056a0 100%
   );
-  background-size: 200% 200%;
+  background-size: 220% 220%;
   background-position: 0% 50%;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   position: relative;
+  display: inline-block;
 }
 
 @supports not ((-webkit-background-clip: text) or (background-clip: text)) {
@@ -206,40 +217,68 @@ import BottomBar from "../components/BottomBar.vue";
   }
 }
 
+/* Glass shimmer layer behind the text */
 .gradient-hover::before {
   content: "";
   position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
+  inset: -4px -8px;
   background: linear-gradient(
-    135deg,
+    105deg,
     transparent 0%,
-    transparent 50%,
-    rgba(255, 126, 185, 0.1) 50%,
-    rgba(255, 153, 201, 0.15) 60%,
-    rgba(255, 179, 217, 0.1) 70%,
-    rgba(255, 126, 185, 0.1) 80%,
-    rgba(224, 86, 160, 0.1) 100%
+    rgba(255, 126, 185, 0.0) 35%,
+    rgba(255, 200, 230, 0.22) 50%,
+    rgba(255, 126, 185, 0.0) 65%,
+    transparent 100%
   );
-  background-size: 200% 200%;
-  background-position: 0% 50%;
-  border-radius: 8px;
+  background-size: 250% 100%;
+  background-position: 120% 0%;
+  border-radius: 6px;
   opacity: 0;
-  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  pointer-events: none;
+  transition:
+    background-position 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    opacity 0.3s ease;
   z-index: -1;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+/* Underline glass bar */
+.gradient-hover::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, #ff7eb9, #ffb3d9, #e056a0);
+  border-radius: 2px;
+  transition: width 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 0 8px rgba(255, 126, 185, 0.5);
 }
 
 .gradient-hover:hover {
   background-position: 100% 50%;
-  transform: translateY(-1px);
-  text-shadow: 0 4px 12px rgba(255, 126, 185, 0.3);
+  transform: translateY(-2px);
+  letter-spacing: 0.03em;
+  filter: drop-shadow(0 4px 10px rgba(255, 126, 185, 0.28));
 }
 
 .gradient-hover:hover::before {
-  background-position: 100% 50%;
+  background-position: -20% 0%;
   opacity: 1;
+}
+
+.gradient-hover:hover::after {
+  width: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gradient-hover,
+  .gradient-hover::before,
+  .gradient-hover::after {
+    transition: none;
+  }
 }
 
 /* ---------- RESPONSIVE TWEAKS ---------- */

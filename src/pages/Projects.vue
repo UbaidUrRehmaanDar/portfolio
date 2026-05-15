@@ -69,6 +69,48 @@
                             <a href="https://www.figma.com/proto/VIB9uBrfPjSaRJY0i5S1MF/FindIt---Project?node-id=0-1&t=dCQfcffLf7TFxW8i-1" target="_blank" rel="noopener">View Prototype</a>
                         </div>
                     </div>
+
+                    <div class="project-card">
+                        <h3>Financial Dashboard</h3>
+                        <p>A full-stack financial analytics platform featuring expense and income tracking, interactive charts, KPI summaries, and transaction management. Built with React and Vite for a fast, modern dashboard experience.</p>
+                        <div class="project-links">
+                            <a href="https://financial-dashboard-rust-pi.vercel.app/" target="_blank" rel="noopener">Live Demo</a>
+                            <a href="https://github.com/UbaidUrRehmaanDar/financial-dashboard" target="_blank" rel="noopener">View Code</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <h3>FairGig</h3>
+                        <p>A Vue-based freelancing marketplace platform focused on fair pricing and transparent gig management. Features job listings, freelancer-client matching, and a clean service discovery interface.</p>
+                        <div class="project-links">
+                            <a href="https://fair-gig-six.vercel.app/login" target="_blank" rel="noopener">Live Demo</a>
+                            <a href="https://github.com/UbaidUrRehmaanDar/FairGig" target="_blank" rel="noopener">View Code</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <h3>Mela</h3>
+                        <p>A community and cultural event marketplace web app. Designed around the concept of a vibrant mela — connecting vendors, event organizers, and attendees through an intuitive discovery and booking experience.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/UbaidUrRehmaanDar/mela" target="_blank" rel="noopener">View Code</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <h3>Smart Diet & Fitness</h3>
+                        <p>A health and wellness tracking application covering diet planning, calorie monitoring, workout management, and BMI analytics. Built to deliver personalized fitness insights through a clean, accessible interface.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/UbaidUrRehmaanDar/smart-diet-fitness" target="_blank" rel="noopener">View Code</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <h3>Versus Void</h3>
+                        <p>A C# combat game prototype featuring arena-style battles and real-time gameplay mechanics. Built as a desktop game exploring game architecture, collision systems, and interactive combat design.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/UbaidUrRehmaanDar/Versus-Void" target="_blank" rel="noopener">View Code</a>
+                        </div>
+                    </div>
                 </div>
 
                 <p class="bottom-note">
