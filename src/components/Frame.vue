@@ -83,6 +83,7 @@ defineProps({
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  word-spacing: 0.15em;
 }
 
 /* ── Main ── */

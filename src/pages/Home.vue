@@ -8,8 +8,10 @@
         <Ticker direction="rtl" />
       </div>
 
-      <h1>Dar</h1>
-      <span class="name-text">Obaid Ur Rehman</span>
+      <div class="hero-name-group">
+        <span class="name-first">Obaid Ur Rehman</span>
+        <span class="name-last">Dar</span>
+      </div>
       <img src="/images/pf.png" alt="Portfolio" class="portfolio-image" />
     </main>
 
@@ -105,47 +107,39 @@ onUnmounted(() => {
   pointer-events: auto;
 }
 
-/* Big "DAR" background name */
-.glass h1 {
-  font-family: "Syne", sans-serif;
-  font-size: clamp(8.4rem, 22vw, 20rem);
-  font-weight: 800;
-  color: #191265;
-  letter-spacing: 0.015em;
-  text-transform: uppercase;
-  user-select: none;
-  pointer-events: none;
-  margin: 0;
-  position: absolute;
-  inset: 0;
+/* Centered name group — sits middle of hero */
+.hero-name-group {
+  position: relative;
+  z-index: 2;
   display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  padding-bottom: clamp(150px, 32vh, 210px);
-  line-height: 0.78;
-  white-space: nowrap;
-  z-index: 1;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  pointer-events: none;
 }
 
-/* "Obaid Ur Rehman" top text — sits below the ticker */
-.name-text {
+.name-first {
   font-family: "Urbanist", sans-serif;
-  font-size: clamp(2.7rem, 7.5vw, 6.75rem);
+  font-size: clamp(2.2rem, 6vw, 5.5rem);
   font-weight: 700;
   color: #191265;
   text-transform: uppercase;
-  letter-spacing: 0.01em;
-  user-select: none;
-  pointer-events: none;
-  position: absolute;
-  top: clamp(70px, 13vh, 120px);
-  left: 50%;
-  transform: translateX(-50%);
+  letter-spacing: 0.02em;
+  line-height: 1;
+  text-align: center;
   white-space: nowrap;
-  z-index: 2;
-  opacity: 0.95;
-  width: max-content;
-  max-width: 95vw;
+}
+
+.name-last {
+  font-family: "Syne", sans-serif;
+  font-size: clamp(6rem, 22vw, 18rem);
+  font-weight: 800;
+  color: #191265;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  line-height: 0.85;
+  text-align: center;
+  white-space: nowrap;
 }
 
 /* Portrait flush to bottom */
@@ -169,14 +163,16 @@ onUnmounted(() => {
     width: 140px;
   }
 
-  .glass h1 {
-    font-size: clamp(4.8rem, 33vw, 8.1rem);
-    padding-bottom: clamp(200px, 40vh, 260px);
+  .hero-name-group {
+    gap: 0.8rem;
   }
 
-  .name-text {
-    font-size: clamp(3rem, 15vw, 5.25rem);
-    top: clamp(55px, 11vh, 90px);
+  .name-first {
+    font-size: clamp(1.4rem, 8vw, 2.5rem);
+  }
+
+  .name-last {
+    font-size: clamp(3.5rem, 25vw, 8rem);
   }
 }
 </style>
