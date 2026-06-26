@@ -1,216 +1,333 @@
 <template>
-    <Frame leftHeader="By Ubaid Ur Rehman Dar" centerHeader="Portfolio Presentation" rightHeader="Frontend Developer"
-        footerText="02" bgClass="bg-white">
-        <transition name="fade-up">
-            <div class="about-content" v-if="show">
-                <button class="back-btn" @click="goHome" aria-label="Back to Home">
-                    <span class="icon" aria-hidden="true">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M15 18l-6-6 6-6" stroke="#FF7EB9" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>
-                    </span>
-                    <span class="back-text">Back</span>
-                </button>
-                <h1 class="pink-title">ABOUT ME</h1>
-                
-                <!-- Personal Image -->
-                <div class="profile-image-container">
-                    <img src="/images/portfolio/my-image-1.jpg" alt="Ubaid Ur Rehman Dar" class="profile-image" />
-                </div>
-                
-                <p>
-                    I'm Ubaid Ur Rehman Dar, a 4th semester BSCS student at Riphah International University with a deep
-                    passion for frontend development and UI/UX design. While I began with C++ and Java, my main focus now is
-                    building modern, creative, and user-friendly web experiences using React, Vue, and the MERN stack.
-                </p>
-                <p>
-                    I love working at the intersection of design and code—bringing ideas to life through clean
-                    interfaces, smooth interactions, and thoughtful user journeys. Tools like Figma let me explore the
-                    creative side of design before translating it into functional, responsive web apps.
-                </p>
-                <p>
-                    I've worked on academic projects such as a Smart RC Car and Smart City Dashboard, as well as
-                    personal projects like <strong>Chakras</strong>, a full-stack music app inspired by Spotify, and
-                    <strong>Rawty Shawty</strong>, a Vue-based restaurant website showcasing an interactive menu and
-                    ordering flow.
-                </p>
-                <p>
-                    For me, frontend is where creativity meets technology, and I'm excited to keep growing in UI/UX and
-                    development through internships and real-world projects.
-                </p>
-                <div class="links">
-                    <a href="https://github.com/UbaidUrRehmaanDar" target="_blank" rel="noopener" class="link-btn">GitHub</a>
-                    <a href="https://www.linkedin.com/in/ubaid-ur-rehman-dar-74a56429a/" target="_blank" rel="noopener" class="link-btn">LinkedIn</a>
-                </div>
+  <Frame
+    leftHeader="Obaid Ur Rehman Dar"
+    centerHeader="Portfolio"
+    rightHeader="About"
+    footerText="02"
+  >
+    <transition name="fade-up">
+      <div class="about-wrap" v-if="show">
+
+        <!-- Back -->
+        <button class="back-btn" @click="goHome" aria-label="Back">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M19 12H5M12 5l-7 7 7 7" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>Back</span>
+        </button>
+
+        <!-- Two-column layout -->
+        <div class="about-grid">
+
+          <!-- Left: text -->
+          <div class="about-text">
+            <div class="section-eyebrow">
+              <span class="eyebrow-dot"></span>
+              <span>About Me</span>
             </div>
-        </transition>
-        <BottomBar />
-    </Frame>
+
+            <h1 class="about-heading">
+              Frontend<br/>
+              <span class="heading-outline">Developer</span><br/>
+              &amp; Designer
+            </h1>
+
+            <div class="about-body">
+              <p>
+                I'm Obaid Ur Rehman Dar, a 6th-semester BSCS student at Riphah International University.
+                My focus is building modern, creative web experiences using React, Vue, and the MERN stack.
+              </p>
+              <p>
+                I work at the intersection of design and code — bringing ideas to life through clean
+                interfaces, smooth interactions, and thoughtful user journeys. Figma is my sketchpad
+                before code becomes the canvas.
+              </p>
+              <p>
+                Projects include <strong>MELA</strong> (university event discovery), <strong>ArenaGo</strong>
+                (sports arena booking), <strong>Khetaan</strong> (WhatsApp AI assistant for farmers),
+                and <strong>MarketIQ</strong> (financial dashboard) — each one a step in growing as a
+                developer and designer.
+              </p>
+            </div>
+
+            <div class="about-links">
+              <a href="https://github.com/UbaidUrRehmaanDar" target="_blank" rel="noopener" class="link-pill">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+                </svg>
+                GitHub
+              </a>
+              <a href="https://www.linkedin.com/in/ubaid-ur-rehman-dar-74a56429a/" target="_blank" rel="noopener" class="link-pill">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
+                LinkedIn
+              </a>
+            </div>
+          </div>
+
+          <!-- Right: portrait + floating cards -->
+          <div class="about-visual">
+            <div class="portrait-frame">
+              <img src="/images/portfolio/my-image-1.jpg" alt="Obaid Ur Rehman Dar" class="portrait-img" />
+            </div>
+
+            <!-- Floating skill badges -->
+            <div class="skill-badge sb-1">
+              <span class="material-icons">code</span>
+              <span>Frontend</span>
+            </div>
+            <div class="skill-badge sb-2">
+              <span class="material-icons">design_services</span>
+              <span>UI/UX</span>
+            </div>
+            <div class="skill-badge sb-3">
+              <span class="material-icons">animation</span>
+              <span>GSAP</span>
+            </div>
+            <div class="skill-badge sb-4">
+              <span class="material-icons">web</span>
+              <span>Vue · React</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </transition>
+
+    <BottomBar />
+  </Frame>
 </template>
 
 <script setup>
-import BottomBar from '../components/BottomBar.vue'
-import { useRouter } from 'vue-router'
 import { ref, onMounted } from 'vue'
-import Frame from '../components/Frame.vue'
+import { useRouter } from 'vue-router'
+import { gsap } from 'gsap'
+import Frame    from '../components/Frame.vue'
+import BottomBar from '../components/BottomBar.vue'
 
 const router = useRouter()
-const show = ref(false)
+const show   = ref(false)
+
 onMounted(() => {
-    setTimeout(() => show.value = true, 120)
+  setTimeout(() => {
+    show.value = true
+    // Float animations after mount
+    gsap.to('.sb-1', { y: -10, duration: 3.0, repeat: -1, yoyo: true, ease: 'sine.inOut' })
+    gsap.to('.sb-2', { y: -13, duration: 4.2, repeat: -1, yoyo: true, ease: 'sine.inOut', delay: 0.6 })
+    gsap.to('.sb-3', { y: -8,  duration: 3.6, repeat: -1, yoyo: true, ease: 'sine.inOut', delay: 1.1 })
+    gsap.to('.sb-4', { y: -11, duration: 4.8, repeat: -1, yoyo: true, ease: 'sine.inOut', delay: 0.3 })
+  }, 80)
 })
-function goHome() {
-    router.push('/')
-}
+
+function goHome() { router.push('/') }
 </script>
 
 <style scoped>
-.about-content {
-    max-width: 700px;
-    margin: 0 auto;
-    text-align: left;
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
-    position: relative;
+/* ── Wrapper ── */
+.about-wrap {
+  width: 100%;
+  max-width: 1100px;
+  padding: 1rem 0 4rem;
+  position: relative;
 }
 
-.pink-title {
-    font-size: 3.8rem;
-    font-weight: 900;
-    color: #FF7EB9;
-    margin-bottom: 1.5rem;
-}
-
-.profile-image-container {
-    display: flex;
-    justify-content: center;
-    margin: 1rem 0 2rem 0;
-}
-
-.profile-image {
-    width: 200px;
-    height: 200px;
-    border-radius: 20px;
-    object-fit: cover;
-    box-shadow: 0 15px 50px rgba(255, 126, 185, 0.2);
-    border: 3px solid rgba(255, 126, 185, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.profile-image:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 60px rgba(255, 126, 185, 0.3);
-}
-
-p {
-    font-size: 1.2rem;
-    margin-bottom: 0.3rem;
-}
-
-.links {
-    margin-top: 2rem;
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-}
-
-/* EXACT BUTTON STYLING FROM PROJECTS PAGE */
-.link-btn {
-    color: #FF7EB9;
-    text-decoration: none;
-    font-weight: 600;
-    padding: 0.4rem 0.8rem;
-    border: 2px solid #FF7EB9;
-    border-radius: 6px;
-    transition: all 0.3s ease;
-    font-size: 0.9rem;
-    background: transparent;
-    cursor: pointer;
-    font-family: inherit;
-}
-
-.link-btn:hover {
-    background: #FF7EB9;
-    color: white;
-}
-
-/* EXACT BACK BUTTON STYLING FROM PROJECTS PAGE */
+/* ── Back button ── */
 .back-btn {
-    position: absolute;
-    top: -0.5rem;
-    left: 0;
-    background: transparent;
-    border: none;
-    color: #FF7EB9;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    padding: 0.5rem;
-    border-radius: 8px;
-    transition: background-color 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: transparent;
+  border: 1px solid var(--border, rgba(25,18,101,0.12));
+  border-radius: 999px;
+  padding: 0.4rem 0.9rem;
+  font-family: var(--font-body, 'Urbanist', sans-serif);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted, #66628D);
+  margin-bottom: 3rem;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
 .back-btn:hover {
-    background: rgba(255, 126, 185, 0.1);
+  background: rgba(25,18,101,0.06);
+  color: var(--brand, #191265);
+  border-color: var(--brand, #191265);
 }
 
-.back-text {
-    font-family: inherit;
+/* ── Two-column grid ── */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
 }
 
-/* Animation */
-.fade-up-enter-active {
-    transition: all 0.35s cubic-bezier(.48, .05, .58, .99);
+/* ── Left: text ── */
+.section-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-body, 'Urbanist', sans-serif);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted, #66628D);
+  margin-bottom: 1.5rem;
 }
 
-.fade-up-enter-from {
-    opacity: 0;
-    transform: translateY(40px);
+.eyebrow-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--brand, #191265);
+  opacity: 0.5;
 }
 
-.fade-up-leave-to {
-    opacity: 0;
-    transform: translateY(-40px);
+.about-heading {
+  font-family: var(--font-display, 'Syne', sans-serif);
+  font-size: clamp(2.8rem, 5.5vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1.0;
+  letter-spacing: -0.025em;
+  color: var(--brand, #191265);
+  text-transform: uppercase;
+  margin-bottom: 2rem;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .about-content {
-        padding: 1.5rem;
-    }
-    
-    .pink-title {
-        font-size: 3rem;
-    }
-    
-    .profile-image {
-        width: 150px;
-        height: 150px;
-    }
-    
-    .links {
-        flex-direction: column;
-    }
-    
-    .link-btn {
-        text-align: center;
-    }
+.heading-outline {
+  color: transparent;
+  -webkit-text-stroke: 2px var(--brand, #191265);
 }
 
-@media (max-width: 480px) {
-    .profile-image {
-        width: 120px;
-        height: 120px;
-    }
-    
-    .pink-title {
-        font-size: 2.5rem;
-    }
+.about-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.about-body p {
+  font-family: var(--font-body, 'Urbanist', sans-serif);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--muted, #66628D);
+}
+
+.about-body strong {
+  font-weight: 600;
+  color: var(--brand, #191265);
+}
+
+.about-links {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.link-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.55rem 1.1rem;
+  border: 1.5px solid var(--border, rgba(25,18,101,0.15));
+  border-radius: 999px;
+  font-family: var(--font-body, 'Urbanist', sans-serif);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--brand, #191265);
+  transition: background 0.22s ease, border-color 0.22s ease, transform 0.22s var(--ease-out);
+}
+
+.link-pill:hover {
+  background: var(--brand, #191265);
+  color: #EBEBDF;
+  border-color: var(--brand, #191265);
+  transform: translateY(-1px);
+}
+
+/* ── Right: visual ── */
+.about-visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 480px;
+}
+
+.portrait-frame {
+  width: 280px;
+  height: 340px;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid var(--border, rgba(25,18,101,0.12));
+  box-shadow: 0 20px 60px rgba(25,18,101,0.10);
+  position: relative;
+  z-index: 2;
+}
+
+.portrait-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ── Skill badges ── */
+.skill-badge {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  background: var(--surface, rgba(255,255,255,0.55));
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border, rgba(25,18,101,0.12));
+  font-family: var(--font-body, 'Urbanist', sans-serif);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--brand, #191265);
+  box-shadow: 0 4px 16px rgba(25,18,101,0.06);
+  white-space: nowrap;
+  z-index: 5;
+}
+
+.skill-badge .material-icons {
+  font-size: 0.95rem;
+  color: var(--brand-2, #2D258D);
+}
+
+.sb-1 { top: 10%;  left: -5%; }
+.sb-2 { top: 30%;  right: -8%; }
+.sb-3 { bottom: 28%; left: -8%; }
+.sb-4 { bottom: 12%; right: -5%; }
+
+/* ── Transition ── */
+.fade-up-enter-active { transition: all 0.4s cubic-bezier(0.16,1,0.3,1); }
+.fade-up-enter-from   { opacity: 0; transform: translateY(32px); }
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .about-visual { min-height: 360px; }
+  .portrait-frame { width: 220px; height: 270px; }
+}
+
+@media (max-width: 640px) {
+  .about-heading { font-size: clamp(2.2rem, 10vw, 3rem); }
+  .sb-1, .sb-3 { left: 0; }
+  .sb-2, .sb-4 { right: 0; }
 }
 </style>

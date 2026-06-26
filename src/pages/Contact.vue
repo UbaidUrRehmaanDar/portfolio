@@ -1,224 +1,179 @@
 <template>
   <Frame
-    leftHeader="By Ubaid Ur Rehman Dar"
-    centerHeader="Portfolio Presentation"
-    rightHeader="Frontend Developer"
+    leftHeader="Obaid Ur Rehman Dar"
+    centerHeader="Portfolio"
+    rightHeader="Contact"
     footerText="05"
-    bgClass="bg-white"
   >
     <transition name="fade-up">
-      <div class="contact-content" v-if="show">
-        <button class="back-btn" @click="goHome" aria-label="Back to Home">
-          <span class="icon" aria-hidden="true">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path d="M15 18l-6-6 6-6" stroke="#FF7EB9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </span>
-          <span class="back-text">Back</span>
+      <div class="contact-wrap" v-if="show">
+
+        <button v-if="!isSection" class="back-btn" @click="goHome" aria-label="Back">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M19 12H5M12 5l-7 7 7 7" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>Back</span>
         </button>
-        <h1 class="pink-title">Contact Us</h1>
-        <p class="desc">Get in touch with me! I'd love to hear from you.</p>
-        <div class="info-list">
-          <div class="info-item">
-            <span class="material-icons info-icon">location_on</span>
-            <span class="info-label">Address</span>
-            <span class="info-value">Lahore, Pakistan</span>
+
+        <div class="contact-grid">
+
+          <!-- Left: heading -->
+          <div class="contact-left">
+            <div class="section-eyebrow">
+              <span class="eyebrow-dot"></span>
+              <span>Get In Touch</span>
+            </div>
+            <h1 class="contact-heading">
+              Let's<br/>
+              <span class="heading-outline">Work</span><br/>
+              Together
+            </h1>
+            <p class="contact-tagline">
+              Open to internships, collaborations, and interesting projects.
+            </p>
           </div>
-          <div class="info-item">
-            <span class="material-icons info-icon">phone</span>
-            <span class="info-label">Phone</span>
-            <span class="info-value">0340-4835034</span>
+
+          <!-- Right: info -->
+          <div class="contact-right">
+            <div class="info-list">
+              <a v-for="item in contactItems" :key="item.label"
+                :href="item.href" :target="item.external ? '_blank' : undefined"
+                :rel="item.external ? 'noopener noreferrer' : undefined"
+                class="info-row"
+              >
+                <div class="info-icon-wrap">
+                  <span class="material-icons">{{ item.icon }}</span>
+                </div>
+                <div class="info-content">
+                  <span class="info-label">{{ item.label }}</span>
+                  <span class="info-value">{{ item.value }}</span>
+                </div>
+                <svg class="info-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                  <path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            </div>
+
+            <footer class="contact-footer">
+              © 2026 Obaid Ur Rehman Dar. All rights reserved.
+            </footer>
           </div>
-          <div class="info-item">
-            <span class="material-icons info-icon">email</span>
-            <span class="info-label">Email</span>
-            <span class="info-value">
-              <a href="mailto:ubaidurrehmaan2004@gmail.com">ubaidurrehmaan2004@gmail.com</a><br>
-            </span>
-          </div>
-          <div class="info-item">
-            <span class="material-icons info-icon">code</span>
-            <span class="info-label">GitHub</span>
-            <span class="info-value">
-              <a href="https://github.com/UbaidUrRehmaanDar" target="_blank" rel="noopener noreferrer">github.com/UbaidUrRehmaanDar</a>
-            </span>
-          </div>
+
         </div>
-        <div class="website-note">
-          <span class="material-icons info-icon">public</span>
-          <span class="info-label">My Website</span>
-          <span class="info-value">Your trusted partner for amazing experiences.</span>
-        </div>
-        <footer class="contact-footer">
-          © 2025 Ubaid Ur Rehmaan Dar. All rights reserved.
-        </footer>
+
       </div>
     </transition>
-    <BottomBar />
+    <BottomBar v-if="!isSection" />
   </Frame>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
-import Frame from '../components/Frame.vue'
+import Frame    from '../components/Frame.vue'
 import BottomBar from '../components/BottomBar.vue'
 
+const props  = defineProps({ isSection: { type: Boolean, default: false } })
 const router = useRouter()
-const show = ref(false)
-onMounted(() => {
-  setTimeout(() => show.value = true, 120)
-})
-function goHome() {
-  router.push('/')
-}
+const show   = ref(false)
+onMounted(() => setTimeout(() => show.value = true, 80))
+function goHome() { router.push('/') }
+
+const contactItems = [
+  { icon: 'location_on', label: 'Location', value: 'Lahore, Pakistan',                href: '#',                                                                    external: false },
+  { icon: 'phone',       label: 'Phone',    value: '0340-4835034',                    href: 'tel:03404835034',                                                       external: false },
+  { icon: 'email',       label: 'Email',    value: 'ubaidurrehmaan2004@gmail.com',    href: 'mailto:ubaidurrehmaan2004@gmail.com',                                   external: false },
+  { icon: 'code',        label: 'GitHub',   value: 'github.com/UbaidUrRehmaanDar',   href: 'https://github.com/UbaidUrRehmaanDar',                                  external: true  },
+  { icon: 'work',        label: 'LinkedIn', value: 'linkedin.com/in/ubaid-ur-rehman-dar', href: 'https://www.linkedin.com/in/ubaid-ur-rehman-dar-74a56429a/',        external: true  },
+]
 </script>
 
 <style scoped>
-.contact-content {
-  max-width: 650px;
-  margin: 0 auto;
-  text-align: left;
-  padding: 2rem 2rem 3.2rem 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.4rem;
+.contact-wrap {
+  width: 100%;
+  max-width: 1100px;
+  padding: 1rem 0 4rem;
   position: relative;
 }
 
-.pink-title {
-  font-size: 3rem;
-  font-weight: 900;
-  color: #FF7EB9;
-  margin-bottom: 1.2rem;
+.back-btn {
+  display: inline-flex; align-items: center; gap: 0.45rem;
+  background: transparent; border: 1px solid var(--border, rgba(25,18,101,0.12));
+  border-radius: 999px; padding: 0.4rem 0.9rem;
+  font-family: var(--font-body, 'Urbanist', sans-serif);
+  font-size: 0.78rem; font-weight: 600; letter-spacing: 0.04em;
+  text-transform: uppercase; color: var(--muted, #66628D); margin-bottom: 3rem;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+.back-btn:hover { background: rgba(25,18,101,0.06); color: var(--brand, #191265); border-color: var(--brand, #191265); }
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: start;
 }
 
-.desc {
-  font-size: 1.17rem;
-  margin-bottom: 1rem;
+.section-eyebrow {
+  display: flex; align-items: center; gap: 0.5rem;
+  font-family: var(--font-body, 'Urbanist', sans-serif);
+  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--muted, #66628D); margin-bottom: 1.5rem;
 }
+.eyebrow-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--brand, #191265); opacity: 0.5; }
 
-.info-list {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  margin-bottom: 2rem;
+.contact-heading {
+  font-family: var(--font-display, 'Syne', sans-serif);
+  font-size: clamp(2.8rem, 5.5vw, 4.5rem);
+  font-weight: 800; line-height: 1.0; letter-spacing: -0.025em;
+  color: var(--brand, #191265); text-transform: uppercase; margin-bottom: 1.5rem;
 }
+.heading-outline { color: transparent; -webkit-text-stroke: 2px var(--brand, #191265); }
 
-.info-item {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 0.8rem 0;
-  border-bottom: 1px solid rgba(255, 126, 185, 0.1);
-}
+.contact-tagline { font-size: 1rem; color: var(--muted, #66628D); line-height: 1.65; max-width: 320px; }
 
-.info-icon {
-  color: #FF7EB9;
-  font-size: 1.5rem;
-  width: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+/* Info list */
+.info-list { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 3rem; }
 
-.info-label {
-  font-weight: 600;
-  color: #333;
-  min-width: 80px;
-  font-size: 1rem;
+.info-row {
+  display: flex; align-items: center; gap: 1rem;
+  padding: 1rem 1.25rem;
+  border-radius: 16px;
+  border: 1px solid var(--border, rgba(25,18,101,0.12));
+  background: var(--surface, rgba(255,255,255,0.55));
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  text-decoration: none; color: inherit;
+  transition: transform 0.25s var(--ease-out), box-shadow 0.25s ease, border-color 0.25s ease;
 }
+.info-row:hover { transform: translateX(4px); box-shadow: 0 8px 24px rgba(25,18,101,0.08); border-color: rgba(25,18,101,0.22); }
 
-.info-value {
-  font-size: 1rem;
-  color: #666;
+.info-icon-wrap {
+  width: 36px; height: 36px; border-radius: 10px;
+  background: rgba(25,18,101,0.06);
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
 }
+.info-icon-wrap .material-icons { font-size: 1.1rem; color: var(--brand-2, #2D258D); }
 
-.info-value a {
-  color: #FF7EB9;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
+.info-content { flex: 1; display: flex; flex-direction: column; gap: 1px; }
+.info-label { font-family: var(--font-body, 'Urbanist', sans-serif); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted, #66628D); }
+.info-value { font-family: var(--font-body, 'Urbanist', sans-serif); font-size: 0.9rem; font-weight: 500; color: var(--brand, #191265); }
 
-.info-value a:hover {
-  color: #e056a0;
-  text-decoration: underline;
-}
-
-.website-note {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 1.2rem 0;
-  border-top: 2px solid rgba(255, 126, 185, 0.2);
-  margin-top: 1rem;
-}
+.info-arrow { color: var(--muted, #66628D); opacity: 0.4; flex-shrink: 0; transition: opacity 0.2s, transform 0.2s; }
+.info-row:hover .info-arrow { opacity: 0.8; transform: translateX(3px); }
 
 .contact-footer {
-  margin-top: 2rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid rgba(255, 126, 185, 0.15);
-  text-align: center;
-  color: #888;
-  font-size: 0.9rem;
+  font-family: var(--font-body, 'Urbanist', sans-serif);
+  font-size: 0.75rem; color: var(--muted, #66628D); opacity: 0.6;
+  padding-top: 1.5rem; border-top: 1px solid var(--border, rgba(25,18,101,0.10));
 }
 
-/* Back button styles - CONSISTENT WITH PROJECTS */
-.back-btn {
-  position: absolute;
-  top: -0.5rem;
-  left: 0;
-  background: transparent;
-  border: none;
-  color: #FF7EB9;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  padding: 0.5rem;
-  border-radius: 8px;
-  transition: background-color 0.2s;
-}
+.fade-up-enter-active { transition: all 0.4s cubic-bezier(0.16,1,0.3,1); }
+.fade-up-enter-from   { opacity: 0; transform: translateY(32px); }
 
-.back-btn:hover {
-  background: rgba(255, 126, 185, 0.1);
+@media (max-width: 900px) {
+  .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
 }
-
-.back-text {
-  font-family: inherit;
-}
-
-/* Animation */
-.fade-up-enter-active {
-  transition: all 0.35s cubic-bezier(.48, .05, .58, .99);
-}
-
-.fade-up-enter-from {
-  opacity: 0;
-  transform: translateY(40px);
-}
-
-/* Responsive */
 @media (max-width: 640px) {
-  .contact-content {
-    padding: 1.5rem 1rem 2.5rem 1rem;
-  }
-  
-  .pink-title {
-    font-size: 2.5rem;
-  }
-  
-  .info-item {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
-  }
-  
-  .info-label {
-    min-width: auto;
-    font-weight: 700;
-  }
+  .contact-heading { font-size: clamp(2.2rem, 10vw, 3rem); }
 }
 </style>

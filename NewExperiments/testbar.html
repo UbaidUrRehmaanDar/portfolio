@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bottom Bar Test</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #ebebdf;
+            font-family: "Urbanist", sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h1 {
+            color: #191265;
+            font-size: 2rem;
+            opacity: 0.4;
+        }
+
+        /* ── iPhone-style Glassmorphism Bottom Bar ── */
+        .bottom-bar {
+            position: fixed;
+            right: 32px;
+            bottom: 32px;
+            /* Glass water effect */
+            background: rgba(255, 255, 255, 0.35);
+            backdrop-filter: blur(24px) saturate(180%) brightness(1.08);
+            -webkit-backdrop-filter: blur(24px) saturate(180%) brightness(1.08);
+            /* iOS-style border & shadow */
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow:
+                0 8px 32px rgba(25, 18, 101, 0.10),
+                0 2px 8px rgba(0, 0, 0, 0.06),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8),
+                inset 0 -1px 0 rgba(255, 255, 255, 0.2);
+            border-radius: 999px;
+            display: flex;
+            gap: 0.25rem;
+            padding: 0.35rem 1.2rem;
+            z-index: 100;
+            min-width: 300px;
+            max-width: 96vw;
+            height: 56px;
+            align-items: center;
+            justify-content: center;
+            transition: box-shadow 0.3s ease, background 0.3s ease, transform 0.3s ease;
+        }
+
+        /* Hover: deeper glass glow */
+        .bottom-bar:hover {
+            background: rgba(255, 255, 255, 0.48);
+            box-shadow:
+                0 12px 44px rgba(25, 18, 101, 0.15),
+                0 4px 12px rgba(0, 0, 0, 0.06),
+                inset 0 1px 0 rgba(255, 255, 255, 0.9),
+                inset 0 -1px 0 rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* ── Nav Items ── */
+        .bar-item {
+            display: flex;
+            align-items: center;
+            gap: 0.2em;
+            padding: 0.4rem 0.75rem;
+            border-radius: 999px;
+            color: #191265;
+            font-weight: 600;
+            font-size: 0.92rem;
+            font-family: "Urbanist", sans-serif;
+            text-decoration: none;
+            transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .bar-item .material-icons {
+            font-size: 1.3em;
+            transition: font-size 0.2s cubic-bezier(.6,.1,.4,1), color 0.15s ease;
+        }
+
+        .bar-item:hover,
+        .bar-item.active {
+            background: #191265;
+            color: #fff;
+            transform: translateY(-1px);
+        }
+
+        .bar-item:hover .material-icons,
+        .bar-item.active .material-icons {
+            font-size: 1.55em;
+            color: #fff;
+        }
+
+        .bar-label {
+            font-size: 0.92em;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 640px) {
+            .bottom-bar {
+                right: 50%;
+                bottom: 16px;
+                transform: translateX(50%);
+                min-width: 0;
+                padding: 0.25rem 0.6rem;
+                height: 48px;
+                gap: 0.1rem;
+            }
+            .bottom-bar:hover {
+                transform: translateX(50%) translateY(-2px);
+            }
+            .bar-item {
+                padding: 0.35rem 0.5rem;
+                font-size: 0.82rem;
+            }
+            .bar-label {
+                display: none;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .bottom-bar {
+                gap: 0;
+                padding: 0.2rem 0.4rem;
+            }
+            .bar-item {
+                padding: 0.3rem 0.35rem;
+                font-size: 0.78rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Page content goes here</h1>
+
+    <nav class="bottom-bar">
+        <a href="#about" class="bar-item active">
+            <span class="material-icons">person</span>
+            <span class="bar-label">About</span>
+        </a>
+        <a href="#projects" class="bar-item">
+            <span class="material-icons">work</span>
+            <span class="bar-label">Projects</span>
+        </a>
+        <a href="#vision" class="bar-item">
+            <span class="material-icons">visibility</span>
+            <span class="bar-label">Vision</span>
+        </a>
+        <a href="#contacts" class="bar-item">
+            <span class="material-icons">mail</span>
+            <span class="bar-label">Contacts</span>
+        </a>
+        <a href="#achievements" class="bar-item">
+            <span class="material-icons">emoji_events</span>
+            <span class="bar-label">Achievements</span>
+        </a>
+    </nav>
+
+    <script>
+        // Active state toggle
+        document.querySelectorAll('.bar-item').forEach(item => {
+            item.addEventListener('click', function(e) {
+                document.querySelectorAll('.bar-item').forEach(i => i.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

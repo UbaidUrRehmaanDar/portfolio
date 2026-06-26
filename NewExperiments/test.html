@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Urbanist:wght@600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #ebebdf;
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+            overflow: hidden;
+        }
+
+        .bg-orbs {
+            display: none;
+        }
+
+        /* ✅ TRUE INVISIBLE GLASS CARD */
+        .glass {
+            position: relative;
+            z-index: 1;
+            padding: 0;
+            margin: 0;
+            width: 100vw;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            /* 🔹 Background set to fully transparent */
+            background: transparent;
+
+            transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s ease;
+            transform-style: preserve-3d;
+        }
+
+        .glass h1 {
+            font-family: "Syne", sans-serif;
+            font-size: clamp(8.4rem, 22vw, 20rem);
+            font-weight: 800;
+            color: #191265;
+            letter-spacing: 0.015em;
+            text-transform: uppercase;
+            user-select: none;
+            pointer-events: none;
+            margin: 0;
+            position: absolute;
+            inset: 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            padding-bottom: clamp(150px, 32vh, 210px);
+            line-height: 0.78;
+            white-space: nowrap;
+            z-index: 1;
+        }
+
+        .name-text {
+            font-family: "Urbanist", sans-serif;
+            font-size: clamp(2.7rem, 7.5vw, 6.75rem);
+            font-weight: 700;
+            color: #191265;
+            text-transform: uppercase;
+            letter-spacing: 0.01em;
+            user-select: none;
+            pointer-events: none;
+            position: absolute;
+            top: clamp(40px, 10vh, 100px);
+            left: 50%;
+            transform: translateX(-50%);
+            white-space: nowrap;
+            z-index: 2;
+            opacity: 0.95;
+            width: max-content;
+            max-width: 95vw;
+        }
+
+        .portfolio-image {
+            position: absolute;
+            z-index: 3;
+            width: 320px;
+            height: auto;
+            border-radius: 18px;
+            object-fit: contain;
+            pointer-events: none;
+            /* ── Move image position (X and Y) ──
+               Adjust these values to shift your image:
+               - top:  moves image up/down  (increase = lower)
+               - left: moves image left/right (increase = more right)
+            */
+            top: 70px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        @media (max-width: 600px) {
+            .portfolio-image {
+                width: 140px;
+                top: 100px;
+            }
+
+            .glass h1 {
+                font-size: clamp(4.8rem, 33vw, 8.1rem);
+                padding-bottom: clamp(200px, 40vh, 260px);
+            }
+
+            .name-text {
+                font-size: clamp(3rem, 15vw, 5.25rem);
+                top: 30px;
+            }
+        }
+
+        /* ── iPhone-style Glassmorphism Bottom Bar ── */
+        .bottom-bar {
+            position: fixed;
+            right: 32px;
+            bottom: 32px;
+            background: rgba(255, 255, 255, 0.35);
+            backdrop-filter: blur(24px) saturate(180%) brightness(1.08);
+            -webkit-backdrop-filter: blur(24px) saturate(180%) brightness(1.08);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow:
+                0 8px 32px rgba(25, 18, 101, 0.10),
+                0 2px 8px rgba(0, 0, 0, 0.06),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8),
+                inset 0 -1px 0 rgba(255, 255, 255, 0.2);
+            border-radius: 999px;
+            display: flex;
+            gap: 0.25rem;
+            padding: 0.35rem 1.2rem;
+            z-index: 100;
+            min-width: 300px;
+            max-width: 96vw;
+            height: 56px;
+            align-items: center;
+            justify-content: center;
+            transition: box-shadow 0.3s ease, background 0.3s ease, transform 0.3s ease;
+        }
+
+        .bottom-bar:hover {
+            background: rgba(255, 255, 255, 0.48);
+            box-shadow:
+                0 12px 44px rgba(25, 18, 101, 0.15),
+                0 4px 12px rgba(0, 0, 0, 0.06),
+                inset 0 1px 0 rgba(255, 255, 255, 0.9),
+                inset 0 -1px 0 rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .bar-item {
+            display: flex;
+            align-items: center;
+            gap: 0.2em;
+            padding: 0.4rem 0.75rem;
+            border-radius: 999px;
+            color: #191265;
+            font-weight: 600;
+            font-size: 0.92rem;
+            font-family: "Urbanist", sans-serif;
+            text-decoration: none;
+            transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .bar-item .material-icons {
+            font-size: 1.3em;
+            transition: font-size 0.2s cubic-bezier(.6,.1,.4,1), color 0.15s ease;
+        }
+
+        .bar-item:hover,
+        .bar-item.active {
+            background: #191265;
+            color: #fff;
+            transform: translateY(-1px);
+        }
+
+        .bar-item:hover .material-icons,
+        .bar-item.active .material-icons {
+            font-size: 1.55em;
+            color: #fff;
+        }
+
+        .bar-label {
+            font-size: 0.92em;
+        }
+
+        @media (max-width: 640px) {
+            .bottom-bar {
+                right: 50%;
+                bottom: 16px;
+                transform: translateX(50%);
+                min-width: 0;
+                padding: 0.25rem 0.6rem;
+                height: 48px;
+                gap: 0.1rem;
+            }
+            .bottom-bar:hover {
+                transform: translateX(50%) translateY(-2px);
+            }
+            .bar-item {
+                padding: 0.35rem 0.5rem;
+                font-size: 0.82rem;
+            }
+            .bar-label {
+                display: none;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .bottom-bar {
+                gap: 0;
+                padding: 0.2rem 0.4rem;
+            }
+            .bar-item {
+                padding: 0.3rem 0.35rem;
+                font-size: 0.78rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+    </div>
+
+    <main class="glass" id="glassCard">
+        <h1>Dar</h1>
+        <span class="name-text">Ubaid Ur Rehmaan</span>
+        <img src="../public/images/pf.png" alt="Portfolio" class="portfolio-image" />
+    </main>
+
+    <nav class="bottom-bar">
+        <a href="#about" class="bar-item">
+            <span class="material-icons">person</span>
+            <span class="bar-label">About</span>
+        </a>
+        <a href="#projects" class="bar-item">
+            <span class="material-icons">work</span>
+            <span class="bar-label">Projects</span>
+        </a>
+        <a href="#vision" class="bar-item">
+            <span class="material-icons">visibility</span>
+            <span class="bar-label">Vision</span>
+        </a>
+        <a href="#contacts" class="bar-item">
+            <span class="material-icons">mail</span>
+            <span class="bar-label">Contacts</span>
+        </a>
+        <a href="#achievements" class="bar-item">
+            <span class="material-icons">emoji_events</span>
+            <span class="bar-label">Achievements</span>
+        </a>
+    </nav>
+
+    <script>
+        const card = document.getElementById('glassCard');
+        const maxTilt = 10;
+
+        document.addEventListener('mousemove', (e) => {
+            const x = (window.innerWidth / 2 - e.clientX) / (window.innerWidth / maxTilt);
+            const y = (window.innerHeight / 2 - e.clientY) / (window.innerHeight / maxTilt);
+            card.style.transform = `perspective(1000px) rotateY(${-x}deg) rotateX(${y}deg)`;
+        });
+
+        document.addEventListener('mouseleave', () => {
+            card.style.transform = `perspective(1000px) rotateY(0deg) rotateX(0deg)`;
+        });
+
+        // Bottom bar active state
+        document.querySelectorAll('.bar-item').forEach(item => {
+            item.addEventListener('click', function(e) {
+                document.querySelectorAll('.bar-item').forEach(i => i.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+
+</html>
