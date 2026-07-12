@@ -35,11 +35,14 @@
                 class="skill-pill"
                 v-for="skill in group.skills"
                 :key="skill.name"
-                :style="{ '--level': skill.level + '%' }"
+                :data-level="skill.level"
               >
-                <span class="pill-name">{{ skill.name }}</span>
+                <div class="pill-row">
+                  <span class="pill-name">{{ skill.name }}</span>
+                  <span class="pill-pct">{{ skill.level }}%</span>
+                </div>
                 <div class="pill-bar">
-                  <div class="pill-fill" ref="fillRefs"></div>
+                  <div class="pill-fill"></div>
                 </div>
               </div>
             </div>
@@ -53,7 +56,6 @@
 
       </div>
     </transition>
-    <BottomBar />
   </Frame>
 </template>
 
@@ -61,13 +63,11 @@
 import { ref, onMounted, nextTick } from 'vue'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import Frame    from '../components/Frame.vue'
-import BottomBar from '../components/BottomBar.vue'
+import Frame from '../components/Frame.vue'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const show     = ref(false)
-const fillRefs = ref([])
+const show = ref(false)
 
 const skillGroups = [
   {
@@ -87,36 +87,36 @@ const skillGroups = [
     category: 'Frontend',
     icon: 'web',
     skills: [
-      { name: 'React',       level: 88 },
-      { name: 'Vue.js',      level: 85 },
-      { name: 'Next.js',     level: 72 },
-      { name: 'Flutter',     level: 68 },
-      { name: 'Tailwind CSS',level: 90 },
-      { name: 'Framer Motion', level: 78 },
+      { name: 'React',          level: 88 },
+      { name: 'Vue.js',         level: 85 },
+      { name: 'Next.js',        level: 72 },
+      { name: 'Flutter',        level: 68 },
+      { name: 'Tailwind CSS',   level: 90 },
+      { name: 'Framer Motion',  level: 78 },
     ],
   },
   {
     category: 'Backend & Databases',
     icon: 'terminal',
     skills: [
-      { name: 'Node.js',     level: 75 },
-      { name: 'Express',     level: 72 },
-      { name: 'FastAPI',     level: 70 },
-      { name: 'Flask',       level: 65 },
-      { name: 'Supabase',    level: 78 },
-      { name: 'Firebase',    level: 70 },
-      { name: 'MongoDB',     level: 72 },
-      { name: 'MySQL',       level: 75 },
+      { name: 'Node.js',   level: 75 },
+      { name: 'Express',   level: 72 },
+      { name: 'FastAPI',   level: 70 },
+      { name: 'Flask',     level: 65 },
+      { name: 'Supabase',  level: 78 },
+      { name: 'Firebase',  level: 70 },
+      { name: 'MongoDB',   level: 72 },
+      { name: 'MySQL',     level: 75 },
     ],
   },
   {
     category: 'AI & Machine Learning',
     icon: 'smart_toy',
     skills: [
-      { name: 'Gemini AI',   level: 72 },
-      { name: 'Ollama',      level: 65 },
-      { name: 'Mistral 7B',  level: 60 },
-      { name: 'ChromaDB',    level: 62 },
+      { name: 'Gemini AI',       level: 72 },
+      { name: 'Ollama',          level: 65 },
+      { name: 'Mistral 7B',      level: 60 },
+      { name: 'ChromaDB',        level: 62 },
       { name: 'LLM Integration', level: 68 },
     ],
   },
@@ -124,22 +124,21 @@ const skillGroups = [
     category: 'Design & UX',
     icon: 'design_services',
     skills: [
-      { name: 'Figma',       level: 82 },
-      { name: 'Spline',      level: 65 },
-      { name: 'UI/UX Design',level: 80 },
+      { name: 'Figma',          level: 82 },
+      { name: 'Spline',         level: 65 },
+      { name: 'UI/UX Design',   level: 80 },
       { name: 'Design Systems', level: 75 },
-
     ],
   },
   {
     category: 'Tools & APIs',
     icon: 'build',
     skills: [
-      { name: 'Git',         level: 88 },
-      { name: 'Docker',      level: 65 },
-      { name: 'Vite',        level: 82 },
-      { name: 'Recharts',    level: 75 },
-      { name: 'REST APIs',   level: 80 },
+      { name: 'Git',       level: 88 },
+      { name: 'Docker',    level: 65 },
+      { name: 'Vite',      level: 82 },
+      { name: 'Recharts',  level: 75 },
+      { name: 'REST APIs', level: 80 },
     ],
   },
 ]
@@ -149,21 +148,24 @@ onMounted(() => {
     show.value = true
     await nextTick()
 
-    // Animate skill bars on scroll
-    document.querySelectorAll('.pill-fill').forEach((el, i) => {
-      const level = el.closest('.skill-pill')?.style.getPropertyValue('--level') || '0%'
-      gsap.fromTo(el,
+    // Animate every pill-fill bar on scroll into view
+    document.querySelectorAll('.skill-pill').forEach((pill, i) => {
+      const fill  = pill.querySelector('.pill-fill')
+      const level = pill.dataset.level + '%'
+      if (!fill) return
+
+      gsap.fromTo(fill,
         { width: '0%' },
         {
           width: level,
-          duration: 1.0,
+          duration: 0.9,
           ease: 'power2.out',
           scrollTrigger: {
-            trigger: el,
-            start: 'top 90%',
+            trigger: pill,
+            start: 'top 92%',
             once: true,
           },
-          delay: (i % 5) * 0.08,
+          delay: (i % 6) * 0.06,
         }
       )
     })
@@ -212,15 +214,13 @@ onMounted(() => {
   background: #F8F9FA;
   transition: border 0.22s ease;
 }
-.skill-group:hover {
-  border: 2px solid #191265;
-}
+.skill-group:hover { border: 2px solid #191265; }
 
 .group-header {
   display: flex; align-items: center; gap: 0.65rem;
   margin-bottom: 1.5rem;
 }
-.group-icon { font-size: 1.2rem; color: var(--brand-2, #2D258D); }
+.group-icon  { font-size: 1.2rem; color: var(--brand-2, #2D258D); }
 .group-title {
   font-family: var(--font-display, 'Syne', sans-serif);
   font-size: 1rem; font-weight: 700; color: var(--brand, #191265);
@@ -229,13 +229,24 @@ onMounted(() => {
 
 .skill-pills { display: flex; flex-direction: column; gap: 0.9rem; }
 
-.skill-pill { display: flex; flex-direction: column; gap: 0.35rem; }
+.skill-pill { display: flex; flex-direction: column; gap: 0.3rem; }
 
+.pill-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.5rem;
+}
 .pill-name {
   font-family: var(--font-body, 'Urbanist', sans-serif);
   font-size: 0.82rem; font-weight: 600;
   color: var(--brand, #191265);
-  display: flex; justify-content: space-between;
+}
+.pill-pct {
+  font-family: var(--font-body, 'Urbanist', sans-serif);
+  font-size: 0.65rem; font-weight: 600;
+  color: var(--muted, #66628D); opacity: 0.55;
+  flex-shrink: 0;
 }
 
 .pill-bar {
@@ -244,7 +255,6 @@ onMounted(() => {
   border-radius: 2px;
   overflow: hidden;
 }
-
 .pill-fill {
   height: 100%;
   width: 0%;
@@ -263,25 +273,37 @@ onMounted(() => {
 .fade-up-enter-active { transition: all 0.4s cubic-bezier(0.16,1,0.3,1); }
 .fade-up-enter-from   { opacity: 0; transform: translateY(32px); }
 
+/* ── Mobile ── */
 @media (max-width: 640px) {
-  .skills-wrap { padding: 1rem 0 3rem; }
-  .skills-grid { grid-template-columns: 1fr; gap: 1rem; }
-  .section-heading { font-size: clamp(2rem, 9vw, 2.8rem); }
-  .section-sub { font-size: 0.88rem; }
-  .skill-group { padding: 1.25rem; border-radius: 16px; }
-  .group-header { margin-bottom: 1rem; }
-  .group-title { font-size: 0.9rem; }
-  .pill-name { font-size: 0.75rem; }
-  .skill-pills { gap: 0.7rem; }
-  .skills-note { font-size: 0.8rem; }
+  .skills-wrap    { padding: 0.75rem 0 2rem; }
   .section-header { margin-bottom: 2rem; }
+  .section-heading { font-size: clamp(2rem, 9vw, 2.8rem); }
+  .section-sub    { font-size: 0.88rem; }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+    margin-bottom: 2rem;
+  }
+
+  .skill-group {
+    padding: 1.25rem;
+    border-radius: 16px;
+  }
+  .group-header  { margin-bottom: 1rem; }
+  .group-title   { font-size: 0.9rem; }
+  .group-icon    { font-size: 1.1rem; }
+  .skill-pills   { gap: 0.75rem; }
+  .pill-name     { font-size: 0.78rem; }
+  .pill-pct      { font-size: 0.62rem; }
+  .skills-note   { font-size: 0.8rem; }
 }
 
 @media (max-width: 380px) {
-  .skill-group { padding: 1rem; }
-  .group-header { gap: 0.45rem; }
-  .group-icon { font-size: 1rem; }
-  .group-title { font-size: 0.82rem; }
-  .pill-name { font-size: 0.7rem; }
+  .skill-group  { padding: 1rem; }
+  .group-header { gap: 0.4rem; }
+  .group-icon   { font-size: 1rem; }
+  .group-title  { font-size: 0.82rem; }
+  .pill-name    { font-size: 0.73rem; }
 }
 </style>

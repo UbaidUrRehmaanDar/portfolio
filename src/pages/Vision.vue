@@ -69,15 +69,13 @@
 
       </div>
     </transition>
-    <BottomBar />
   </Frame>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
-import Frame    from '../components/Frame.vue'
-import BottomBar from '../components/BottomBar.vue'
+import Frame from '../components/Frame.vue'
 
 const router = useRouter()
 const show   = ref(false)
@@ -101,12 +99,14 @@ const principles = [
 
 .back-btn {
   display: inline-flex; align-items: center; gap: 0.45rem;
-  background: transparent; border: 1px solid var(--border, rgba(25,18,101,0.12));
+  background: transparent;
+  border: 1px solid var(--border, rgba(25,18,101,0.12));
   border-radius: 999px; padding: 0.4rem 0.9rem;
   font-family: var(--font-body, 'Urbanist', sans-serif);
   font-size: 0.78rem; font-weight: 600; letter-spacing: 0.04em;
   text-transform: uppercase; color: var(--muted, #66628D); margin-bottom: 3rem;
   transition: background 0.2s, color 0.2s, border-color 0.2s;
+  cursor: pointer;
 }
 .back-btn:hover { background: rgba(25,18,101,0.06); color: var(--brand, #191265); border-color: var(--brand, #191265); }
 
@@ -158,31 +158,43 @@ const principles = [
 .principle-card:hover { border: 2px solid #191265; }
 .principle-icon { font-size: 1.2rem; color: var(--brand-2, #2D258D); margin-top: 1px; flex-shrink: 0; }
 .principle-label { font-family: var(--font-display, 'Syne', sans-serif); font-size: 0.85rem; font-weight: 700; color: var(--brand, #191265); letter-spacing: 0.02em; margin-bottom: 0.2rem; }
-.principle-desc { font-size: 0.82rem; color: var(--muted, #66628D); line-height: 1.5; }
+.principle-desc  { font-size: 0.82rem; color: var(--muted, #66628D); line-height: 1.5; }
 
 .fade-up-enter-active { transition: all 0.4s cubic-bezier(0.16,1,0.3,1); }
 .fade-up-enter-from   { opacity: 0; transform: translateY(32px); }
 
+/* ── Tablet ── */
 @media (max-width: 900px) {
   .vision-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-  .vision-body p { font-size: 0.92rem; }
-  .principle-card { padding: 0.9rem 1rem; }
+  .vision-body p { font-size: 0.95rem; }
 }
+
+/* ── Mobile ── */
 @media (max-width: 640px) {
-  .vision-wrap { padding: 1rem 0 3rem; }
-  .vision-heading { font-size: clamp(2rem, 9vw, 2.8rem); margin-bottom: 1.5rem; }
-  .vision-quote { font-size: 0.9rem; padding-left: 0.9rem; }
-  .vision-body { gap: 0.85rem; margin-bottom: 1.5rem; }
+  .vision-wrap   { padding: 0.75rem 0 2rem; }
+  .back-btn      { margin-bottom: 1.5rem; }
+  .vision-grid   { gap: 2rem; }
+  .vision-heading {
+    font-size: clamp(2rem, 9vw, 2.8rem);
+    margin-bottom: 1.25rem;
+  }
+  .vision-quote  { font-size: 0.88rem; padding-left: 0.9rem; }
+  .vision-body   { gap: 0.85rem; margin-bottom: 1.75rem; }
   .vision-body p { font-size: 0.88rem; line-height: 1.6; }
-  .principle-card { padding: 0.8rem 0.9rem; border-radius: 12px; }
-  .principle-label { font-size: 0.78rem; }
-  .principle-desc { font-size: 0.75rem; }
-  .back-btn { margin-bottom: 2rem; }
+  .principle-card {
+    padding: 0.9rem 1rem;
+    border-radius: 14px;
+    gap: 0.85rem;
+  }
+  .principle-label { font-size: 0.8rem; }
+  .principle-desc  { font-size: 0.75rem; }
+  .principle-icon  { font-size: 1.1rem; }
+  .section-eyebrow { margin-bottom: 1rem; }
 }
 
 @media (max-width: 380px) {
-  .vision-heading { font-size: clamp(1.6rem, 8vw, 2.2rem); }
-  .vision-body p { font-size: 0.82rem; }
-  .principle-card { gap: 0.65rem; }
+  .vision-heading { font-size: clamp(1.7rem, 8vw, 2.2rem); }
+  .vision-body p  { font-size: 0.83rem; }
+  .principle-card { padding: 0.75rem 0.85rem; gap: 0.65rem; }
 }
 </style>

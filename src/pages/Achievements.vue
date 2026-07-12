@@ -36,19 +36,16 @@
               <p class="ach-desc">{{ item.desc }}</p>
             </div>
           </div>
-
         </div>
 
       </div>
     </transition>
-    <BottomBar />
   </Frame>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue'
-import Frame    from '../components/Frame.vue'
-import BottomBar from '../components/BottomBar.vue'
+import Frame from '../components/Frame.vue'
 
 const show = ref(false)
 onMounted(() => setTimeout(() => show.value = true, 80))
@@ -69,7 +66,7 @@ const achievements = [
   {
     icon: 'groups',
     year: '2025–2026',
-    title: 'SOFTEC\'26',
+    title: "SOFTEC'26",
     desc: 'Fairgig — a web-based platform demonstrating scalable frontend architecture and collaborative development in a competitive environment.',
   },
   {
@@ -121,9 +118,7 @@ const achievements = [
   transition: border 0.22s ease;
   overflow: hidden;
 }
-.ach-card:hover {
-  border: 2px solid #191265;
-}
+.ach-card:hover { border: 2px solid #191265; }
 
 .ach-card-inner { padding: 1.75rem; display: flex; flex-direction: column; gap: 0.75rem; height: 100%; }
 
@@ -138,10 +133,10 @@ const achievements = [
   font-size: 0.7rem; font-weight: 600; letter-spacing: 0.06em;
   color: var(--brand-3, #4B45A7);
   background: rgba(75,69,167,0.08); border-radius: 999px; padding: 0.2rem 0.55rem;
+  white-space: nowrap;
 }
 
-.ach-icon { font-size: 1.6rem; color: var(--brand-2, #2D258D); opacity: 0.7; }
-
+.ach-icon  { font-size: 1.6rem; color: var(--brand-2, #2D258D); opacity: 0.7; }
 .ach-title {
   font-family: var(--font-display, 'Syne', sans-serif);
   font-size: 1.05rem; font-weight: 700;
@@ -152,22 +147,24 @@ const achievements = [
 .fade-up-enter-active { transition: all 0.4s cubic-bezier(0.16,1,0.3,1); }
 .fade-up-enter-from   { opacity: 0; transform: translateY(32px); }
 
+/* ── Mobile ── */
 @media (max-width: 640px) {
-  .ach-wrap { padding: 1rem 0 3rem; }
-  .ach-grid { grid-template-columns: 1fr; gap: 0.85rem; }
-  .section-heading { font-size: clamp(2rem, 9vw, 2.8rem); }
-  .section-sub { font-size: 0.88rem; }
-  .ach-card-inner { padding: 1.25rem; gap: 0.55rem; }
-  .ach-card { border-radius: 16px; }
-  .ach-title { font-size: 0.92rem; }
-  .ach-desc { font-size: 0.8rem; }
-  .ach-icon { font-size: 1.3rem; }
+  .ach-wrap      { padding: 0.75rem 0 2rem; }
   .section-header { margin-bottom: 2rem; }
+  .ach-grid      { grid-template-columns: 1fr; gap: 0.85rem; }
+  .section-heading { font-size: clamp(2rem, 9vw, 2.8rem); }
+  .section-sub   { font-size: 0.88rem; }
+  .ach-card      { border-radius: 16px; }
+  .ach-card-inner { padding: 1.25rem; gap: 0.6rem; }
+  .ach-title     { font-size: 0.95rem; }
+  .ach-desc      { font-size: 0.82rem; }
+  .ach-icon      { font-size: 1.35rem; }
+  .ach-year      { font-size: 0.65rem; padding: 0.15rem 0.45rem; }
 }
 
 @media (max-width: 380px) {
-  .ach-card-inner { padding: 1rem; }
-  .ach-title { font-size: 0.85rem; }
-  .ach-desc { font-size: 0.75rem; }
+  .ach-card-inner { padding: 1rem; gap: 0.5rem; }
+  .ach-title      { font-size: 0.88rem; }
+  .ach-desc       { font-size: 0.77rem; }
 }
 </style>

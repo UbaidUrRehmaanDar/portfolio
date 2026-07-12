@@ -1,13 +1,15 @@
 <template>
-  <nav class="bottom-bar" ref="navRef">
+  <nav class="bottom-bar" ref="navRef" role="navigation" aria-label="Main navigation">
     <router-link
       v-for="tab in tabs"
       :key="tab.name"
       :to="tab.to"
       class="bar-item"
       :class="{ active: isActive(tab.to) }"
+      :aria-label="tab.label"
+      :title="tab.label"
     >
-      <span class="material-icons">{{ tab.icon }}</span>
+      <span class="material-icons bar-icon">{{ tab.icon }}</span>
       <span class="bar-label">{{ tab.label }}</span>
     </router-link>
   </nav>
@@ -64,13 +66,11 @@ onMounted(() => {
   display: flex;
   gap: 0.25rem;
   padding: 0.35rem 1.2rem;
-  z-index: 100;
-  min-width: 300px;
-  max-width: 96vw;
+  z-index: 200;
   height: 56px;
   align-items: center;
   justify-content: center;
-  transition: box-shadow 0.3s ease, background 0.3s ease, transform 0.3s ease;
+  transition: box-shadow 0.3s ease, background 0.3s ease;
   text-decoration: none;
 }
 
@@ -81,7 +81,6 @@ onMounted(() => {
     0 4px 12px rgba(0, 0, 0, 0.06),
     inset 0 1px 0 rgba(255, 255, 255, 0.9),
     inset 0 -1px 0 rgba(255, 255, 255, 0.3);
-  transform: translateY(-2px);
 }
 
 /* ── Nav Items ── */
@@ -101,9 +100,10 @@ onMounted(() => {
   white-space: nowrap;
 }
 
-.bar-item .material-icons {
+.bar-icon {
   font-size: 1.3em;
   transition: font-size 0.2s cubic-bezier(.6, .1, .4, 1), color 0.15s ease;
+  flex-shrink: 0;
 }
 
 .bar-item:hover,
@@ -113,8 +113,8 @@ onMounted(() => {
   transform: translateY(-1px);
 }
 
-.bar-item:hover .material-icons,
-.bar-item.active .material-icons {
+.bar-item:hover .bar-icon,
+.bar-item.active .bar-icon {
   font-size: 1.55em;
   color: #fff;
 }
@@ -123,27 +123,58 @@ onMounted(() => {
   font-size: 0.92em;
 }
 
-/* ── Responsive ── */
+/* ────────────────────────────────────────
+   MOBILE NAV — bottom sheet dock
+   Icons only, centered, full-width pill
+   Safe area aware for notched phones
+──────────────────────────────────────── */
 @media (max-width: 640px) {
   .bottom-bar {
-    right: 50%;
-    bottom: 16px;
-    transform: translateX(50%);
-    min-width: 0;
-    padding: 0.25rem 0.6rem;
-    height: 48px;
-    gap: 0.1rem;
+    /* Full-width pill across the bottom */
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+    transform: none;
+    width: auto;
+    height: 52px;
+    padding: 0.3rem 0.5rem;
+    gap: 0;
+    border-radius: 20px;
+    justify-content: space-around;
   }
 
   .bottom-bar:hover {
-    transform: translateX(50%) translateY(-2px);
+    /* Disable hover lift on mobile — no hover state on touch */
+    transform: none;
+    background: rgba(255, 255, 255, 0.35);
   }
 
   .bar-item {
-    padding: 0.35rem 0.5rem;
-    font-size: 0.82rem;
+    /* Icon-only: equal flex items */
+    flex: 1;
+    justify-content: center;
+    padding: 0.4rem 0.2rem;
+    font-size: 0;       /* hides text while keeping label in DOM for a11y */
+    border-radius: 14px;
+    gap: 0;
   }
 
+  .bar-icon {
+    font-size: 1.35rem;
+  }
+
+  .bar-item:hover .bar-icon,
+  .bar-item.active .bar-icon {
+    font-size: 1.35rem; /* no size jump on mobile */
+  }
+
+  .bar-item.active {
+    background: #191265;
+    transform: none;
+  }
+
+  /* Labels completely hidden on mobile */
   .bar-label {
     display: none;
   }
@@ -151,13 +182,17 @@ onMounted(() => {
 
 @media (max-width: 380px) {
   .bottom-bar {
-    gap: 0;
-    padding: 0.2rem 0.4rem;
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+    bottom: calc(8px + env(safe-area-inset-bottom, 0px));
+    height: 48px;
+    padding: 0.25rem 0.3rem;
+    border-radius: 16px;
   }
 
-  .bar-item {
-    padding: 0.3rem 0.35rem;
-    font-size: 0.78rem;
+  .bar-icon {
+    font-size: 1.2rem;
   }
 }
 </style>

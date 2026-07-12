@@ -66,28 +66,50 @@
             </div>
           </div>
 
-          <!-- Right: portrait + floating cards -->
+          <!-- Right: portrait + skill badges -->
           <div class="about-visual">
             <div class="portrait-frame">
               <img src="/images/portfolio/my-image-1.jpg" alt="Obaid Ur Rehman Dar" class="portrait-img" />
             </div>
 
-            <!-- Floating skill badges -->
-            <div class="skill-badge sb-1">
-              <span class="material-icons">code</span>
-              <span>Frontend</span>
+            <!-- Floating skill badges — desktop only, inline row on mobile -->
+            <div class="skill-badges-desktop">
+              <div class="skill-badge sb-1">
+                <span class="material-icons">code</span>
+                <span>Frontend</span>
+              </div>
+              <div class="skill-badge sb-2">
+                <span class="material-icons">design_services</span>
+                <span>UI/UX</span>
+              </div>
+              <div class="skill-badge sb-3">
+                <span class="material-icons">animation</span>
+                <span>GSAP</span>
+              </div>
+              <div class="skill-badge sb-4">
+                <span class="material-icons">web</span>
+                <span>Vue · React</span>
+              </div>
             </div>
-            <div class="skill-badge sb-2">
-              <span class="material-icons">design_services</span>
-              <span>UI/UX</span>
-            </div>
-            <div class="skill-badge sb-3">
-              <span class="material-icons">animation</span>
-              <span>GSAP</span>
-            </div>
-            <div class="skill-badge sb-4">
-              <span class="material-icons">web</span>
-              <span>Vue · React</span>
+
+            <!-- Mobile: inline badge row below portrait -->
+            <div class="skill-badges-mobile">
+              <div class="skill-badge-inline">
+                <span class="material-icons">code</span>
+                <span>Frontend</span>
+              </div>
+              <div class="skill-badge-inline">
+                <span class="material-icons">design_services</span>
+                <span>UI/UX</span>
+              </div>
+              <div class="skill-badge-inline">
+                <span class="material-icons">animation</span>
+                <span>GSAP</span>
+              </div>
+              <div class="skill-badge-inline">
+                <span class="material-icons">web</span>
+                <span>Vue · React</span>
+              </div>
             </div>
           </div>
 
@@ -96,7 +118,6 @@
       </div>
     </transition>
 
-    <BottomBar />
   </Frame>
 </template>
 
@@ -104,8 +125,7 @@
 import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { gsap } from 'gsap'
-import Frame    from '../components/Frame.vue'
-import BottomBar from '../components/BottomBar.vue'
+import Frame from '../components/Frame.vue'
 
 const router = useRouter()
 const show   = ref(false)
@@ -113,11 +133,13 @@ const show   = ref(false)
 onMounted(() => {
   setTimeout(() => {
     show.value = true
-    // Float animations after mount
-    gsap.to('.sb-1', { y: -10, duration: 3.0, repeat: -1, yoyo: true, ease: 'sine.inOut' })
-    gsap.to('.sb-2', { y: -13, duration: 4.2, repeat: -1, yoyo: true, ease: 'sine.inOut', delay: 0.6 })
-    gsap.to('.sb-3', { y: -8,  duration: 3.6, repeat: -1, yoyo: true, ease: 'sine.inOut', delay: 1.1 })
-    gsap.to('.sb-4', { y: -11, duration: 4.8, repeat: -1, yoyo: true, ease: 'sine.inOut', delay: 0.3 })
+    // Only float badges on desktop
+    if (window.innerWidth > 640) {
+      gsap.to('.sb-1', { y: -10, duration: 3.0, repeat: -1, yoyo: true, ease: 'sine.inOut' })
+      gsap.to('.sb-2', { y: -13, duration: 4.2, repeat: -1, yoyo: true, ease: 'sine.inOut', delay: 0.6 })
+      gsap.to('.sb-3', { y: -8,  duration: 3.6, repeat: -1, yoyo: true, ease: 'sine.inOut', delay: 1.1 })
+      gsap.to('.sb-4', { y: -11, duration: 4.8, repeat: -1, yoyo: true, ease: 'sine.inOut', delay: 0.3 })
+    }
   }, 80)
 })
 
@@ -150,8 +172,8 @@ function goHome() { router.push('/') }
   color: var(--muted, #66628D);
   margin-bottom: 3rem;
   transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  cursor: pointer;
 }
-
 .back-btn:hover {
   background: rgba(25,18,101,0.06);
   color: var(--brand, #191265);
@@ -179,13 +201,9 @@ function goHome() { router.push('/') }
   color: var(--muted, #66628D);
   margin-bottom: 1.5rem;
 }
-
 .eyebrow-dot {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--brand, #191265);
-  opacity: 0.5;
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--brand, #191265); opacity: 0.5;
 }
 
 .about-heading {
@@ -198,7 +216,6 @@ function goHome() { router.push('/') }
   text-transform: uppercase;
   margin-bottom: 2rem;
 }
-
 .heading-outline {
   color: transparent;
   -webkit-text-stroke: 2px var(--brand, #191265);
@@ -210,7 +227,6 @@ function goHome() { router.push('/') }
   gap: 1rem;
   margin-bottom: 2.5rem;
 }
-
 .about-body p {
   font-family: var(--font-body, 'Urbanist', sans-serif);
   font-size: 1rem;
@@ -218,7 +234,6 @@ function goHome() { router.push('/') }
   line-height: 1.7;
   color: var(--muted, #66628D);
 }
-
 .about-body strong {
   font-weight: 600;
   color: var(--brand, #191265);
@@ -229,7 +244,6 @@ function goHome() { router.push('/') }
   gap: 0.75rem;
   flex-wrap: wrap;
 }
-
 .link-pill {
   display: inline-flex;
   align-items: center;
@@ -241,9 +255,9 @@ function goHome() { router.push('/') }
   font-size: 0.82rem;
   font-weight: 600;
   color: var(--brand, #191265);
-  transition: background 0.22s ease, border-color 0.22s ease;
+  text-decoration: none;
+  transition: background 0.22s ease, border-color 0.22s ease, color 0.22s ease;
 }
-
 .link-pill:hover {
   background: var(--brand, #191265);
   color: #EBEBDF;
@@ -268,8 +282,8 @@ function goHome() { router.push('/') }
   box-shadow: 0 20px 60px rgba(25,18,101,0.10);
   position: relative;
   z-index: 2;
+  flex-shrink: 0;
 }
-
 .portrait-img {
   width: 100%;
   height: 100%;
@@ -277,7 +291,10 @@ function goHome() { router.push('/') }
   display: block;
 }
 
-/* ── Skill badges ── */
+/* ── Desktop floating badges ── */
+.skill-badges-desktop { display: contents; }
+.skill-badges-mobile  { display: none; }
+
 .skill-badge {
   position: absolute;
   display: flex;
@@ -299,11 +316,7 @@ function goHome() { router.push('/') }
   white-space: nowrap;
   z-index: 5;
 }
-
-.skill-badge .material-icons {
-  font-size: 0.95rem;
-  color: var(--brand-2, #2D258D);
-}
+.skill-badge .material-icons { font-size: 0.95rem; color: var(--brand-2, #2D258D); }
 
 .sb-1 { top: 10%;  left: -5%; }
 .sb-2 { top: 30%;  right: -8%; }
@@ -314,38 +327,79 @@ function goHome() { router.push('/') }
 .fade-up-enter-active { transition: all 0.4s cubic-bezier(0.16,1,0.3,1); }
 .fade-up-enter-from   { opacity: 0; transform: translateY(32px); }
 
-/* ── Responsive ── */
+/* ── Tablet ── */
 @media (max-width: 900px) {
-  .about-grid {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-  }
+  .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
   .about-visual { min-height: 360px; }
   .portrait-frame { width: 220px; height: 270px; }
   .about-wrap { padding: 1rem 0 3rem; }
   .about-heading { font-size: clamp(2.4rem, 7vw, 3.5rem); margin-bottom: 1.5rem; }
 }
 
+/* ── Mobile ── */
 @media (max-width: 640px) {
-  .about-grid { grid-template-columns: 1fr; gap: 2rem; }
-  .about-heading { font-size: clamp(2rem, 9vw, 2.8rem); }
-  .about-visual { min-height: 300px; order: -1; }
-  .portrait-frame { width: 180px; height: 220px; }
-  .about-body p { font-size: 0.92rem; }
-  .back-btn { margin-bottom: 2rem; }
-  .sb-1 { top: 8%; left: 2%; }
-  .sb-2 { top: 25%; right: 2%; }
-  .sb-3 { bottom: 32%; left: 2%; }
-  .sb-4 { bottom: 10%; right: 2%; }
-  .about-links { gap: 0.5rem; }
-  .link-pill { padding: 0.45rem 0.85rem; font-size: 0.75rem; }
+  .about-wrap { padding: 0.75rem 0 2rem; }
+  .back-btn   { margin-bottom: 1.5rem; }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  /* Portrait section comes first on mobile */
+  .about-visual {
+    order: -1;
+    min-height: 0;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .portrait-frame {
+    width: 100%;
+    max-width: 320px;
+    height: 240px;
+    border-radius: 20px;
+  }
+
+  /* Hide absolute-positioned desktop badges */
+  .skill-badges-desktop { display: none; }
+
+  /* Show inline badge row on mobile */
+  .skill-badges-mobile {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+  }
+
+  .skill-badge-inline {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.3rem 0.7rem;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.6);
+    border: 1px solid var(--border, rgba(25,18,101,0.12));
+    font-family: var(--font-body, 'Urbanist', sans-serif);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--brand, #191265);
+  }
+  .skill-badge-inline .material-icons { font-size: 0.85rem; color: var(--brand-2, #2D258D); }
+
+  .about-heading { font-size: clamp(2rem, 9vw, 2.8rem); margin-bottom: 1.25rem; }
+  .about-body p  { font-size: 0.9rem; line-height: 1.65; }
+  .about-body    { gap: 0.85rem; margin-bottom: 1.75rem; }
+  .about-links   { gap: 0.5rem; }
+  .link-pill     { padding: 0.45rem 0.85rem; font-size: 0.75rem; }
 }
 
 @media (max-width: 380px) {
-  .about-heading { font-size: clamp(1.6rem, 8vw, 2rem); }
-  .portrait-frame { width: 150px; height: 185px; }
-  .about-visual { min-height: 240px; }
-  .skill-badge { font-size: 0.65rem; padding: 0.3rem 0.6rem; }
-  .skill-badge .material-icons { font-size: 0.8rem; }
+  .about-heading { font-size: clamp(1.7rem, 8vw, 2rem); }
+  .portrait-frame { height: 200px; max-width: 280px; }
+  .about-body p  { font-size: 0.84rem; }
 }
 </style>

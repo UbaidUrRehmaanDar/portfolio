@@ -134,15 +134,13 @@
       </div>
     </div>
 
-    <BottomBar v-if="!isSection" />
   </Frame>
 </template>
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
 import { useRouter } from 'vue-router'
-import Frame    from '../components/Frame.vue'
-import BottomBar from '../components/BottomBar.vue'
+import Frame from '../components/Frame.vue'
 
 
 const props = defineProps({ isSection: { type: Boolean, default: false } })

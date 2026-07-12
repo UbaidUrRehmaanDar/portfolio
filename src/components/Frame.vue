@@ -68,6 +68,7 @@ defineProps({
   display: flex;
   align-items: center;
   gap: 0.55rem;
+  min-width: 0;
 }
 
 .fh-dot {
@@ -93,7 +94,8 @@ defineProps({
   align-items: center;
   justify-content: center;
   min-height: calc(100vh - 52px);
-  padding: 4rem 2rem 6rem;
+  /* Bottom padding accounts for the fixed nav bar (52px) + breathing room */
+  padding: 4rem 2rem 8rem;
   position: relative;
 }
 
@@ -121,7 +123,7 @@ defineProps({
 .bg-light  { --bg: #EBEBDF; --text: #191265; }
 .bg-dark   { --bg: #191265; --text: #EBEBDF; }
 
-/* ── Responsive ── */
+/* ── Tablet ── */
 @media (max-width: 768px) {
   .frame-header {
     padding: 0 1.25rem;
@@ -130,16 +132,42 @@ defineProps({
   }
   .fh-center { display: none; }
   .fh-right { font-size: 0.62rem; }
-  .frame-main { padding: 2.5rem 1rem 4.5rem; }
+  .frame-main {
+    padding: 2.5rem 1rem 8rem;
+    min-height: calc(100vh - 48px);
+  }
   .frame-footer { left: 1.25rem; bottom: 1.25rem; }
   .page-num { font-size: 0.65rem; }
 }
 
-@media (max-width: 400px) {
-  .frame-header { padding: 0 0.75rem; font-size: 0.6rem; height: 44px; }
-  .fh-text { max-width: 80px; }
-  .fh-right { max-width: 80px; }
-  .frame-main { padding: 2rem 0.75rem 4rem; }
-  .frame-footer { left: 0.75rem; bottom: 1rem; }
+/* ── Mobile ── */
+@media (max-width: 640px) {
+  .frame-header {
+    padding: 0 1rem;
+    font-size: 0.6rem;
+    height: 44px;
+    gap: 0.5rem;
+  }
+  /* On mobile only show the page name on the right — hide left name to save space */
+  .fh-left { display: none; }
+  .fh-right {
+    font-size: 0.68rem;
+    font-weight: 600;
+    color: var(--brand, #191265);
+    letter-spacing: 0.08em;
+  }
+  .frame-main {
+    /* Nav bar on mobile is ~52px + 12px gap from bottom */
+    padding: 1.5rem 1rem 7rem;
+    align-items: stretch;
+    min-height: calc(100vh - 44px);
+  }
+  /* Hide fixed page number on mobile — nav takes that space */
+  .frame-footer { display: none; }
+}
+
+@media (max-width: 380px) {
+  .frame-header { padding: 0 0.75rem; height: 42px; }
+  .frame-main { padding: 1.25rem 0.75rem 6.5rem; }
 }
 </style>

@@ -53,14 +53,12 @@
 
       </div>
     </transition>
-    <BottomBar />
   </Frame>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue'
-import Frame    from '../components/Frame.vue'
-import BottomBar from '../components/BottomBar.vue'
+import Frame from '../components/Frame.vue'
 
 const show = ref(false)
 onMounted(() => setTimeout(() => show.value = true, 80))
@@ -81,7 +79,7 @@ const experiences = [
     title: 'Hackathon Participant › Halshanas',
     period: '2026',
     location: 'BNU & FAST-NUCES',
-    desc: 'Co-developed Khetaan, a WhatsApp AI assistant for farmers, achieving Runner-Up at Halshanas Edition II (BNU). Worked with a team to integrate Gemini AI, FastAPI webhooks, and WhatsApp Cloud API under tight deadlines. Also participated at SOFTEC\'26.',
+    desc: "Co-developed Khetaan, a WhatsApp AI assistant for farmers, achieving Runner-Up at Halshanas Edition II (BNU). Worked with a team to integrate Gemini AI, FastAPI webhooks, and WhatsApp Cloud API under tight deadlines. Also participated at SOFTEC'26.",
     highlights: ['Team Lead', 'FastAPI', 'Gemini AI', 'WhatsApp API'],
   },
   {
@@ -136,9 +134,7 @@ const experiences = [
   transition: border 0.22s ease;
   overflow: hidden;
 }
-.exp-card:hover {
-  border: 2px solid #191265;
-}
+.exp-card:hover { border: 2px solid #191265; }
 
 .exp-card-inner { padding: 1.75rem; display: flex; flex-direction: column; gap: 0.75rem; }
 
@@ -153,22 +149,24 @@ const experiences = [
   font-size: 0.65rem; font-weight: 600; letter-spacing: 0.06em;
   text-transform: uppercase; color: var(--brand-3, #4B45A7);
   background: rgba(75,69,167,0.08); border-radius: 999px; padding: 0.2rem 0.55rem;
+  white-space: nowrap;
 }
 
 .exp-icon { font-size: 1.6rem; color: var(--brand-2, #2D258D); opacity: 0.7; }
 
 .exp-title {
   font-family: var(--font-display, 'Syne', sans-serif);
-  font-size: clamp(1.1rem, 2vw, 1.35rem); font-weight: 700;
+  font-size: clamp(1.05rem, 2vw, 1.3rem); font-weight: 700;
   color: var(--brand, #191265); letter-spacing: -0.01em; line-height: 1.3;
 }
 
 .exp-meta {
-  display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
+  display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;
 }
 .exp-period {
   font-family: var(--font-body, 'Urbanist', sans-serif);
   font-size: 0.78rem; font-weight: 600; color: var(--brand-2, #2D258D);
+  white-space: nowrap;
 }
 .exp-location {
   display: inline-flex; align-items: center; gap: 0.3rem;
@@ -176,13 +174,9 @@ const experiences = [
   font-size: 0.72rem; font-weight: 500; color: var(--muted, #66628D);
 }
 
-.exp-desc {
-  font-size: 0.9rem; line-height: 1.65; color: var(--muted, #66628D);
-}
+.exp-desc { font-size: 0.9rem; line-height: 1.65; color: var(--muted, #66628D); }
 
-.exp-highlights {
-  display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: 0.25rem;
-}
+.exp-highlights { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: 0.25rem; }
 .exp-tag {
   font-family: var(--font-body, 'Urbanist', sans-serif);
   font-size: 0.65rem; font-weight: 600; letter-spacing: 0.06em;
@@ -193,26 +187,29 @@ const experiences = [
 .fade-up-enter-active { transition: all 0.4s cubic-bezier(0.16,1,0.3,1); }
 .fade-up-enter-from   { opacity: 0; transform: translateY(32px); }
 
+/* ── Mobile ── */
 @media (max-width: 640px) {
-  .exp-wrap { padding: 1rem 0 3rem; }
-  .exp-grid { grid-template-columns: 1fr; gap: 0.85rem; }
+  .exp-wrap       { padding: 0.75rem 0 2rem; }
+  .section-header  { margin-bottom: 2rem; }
+  .exp-grid        { grid-template-columns: 1fr; gap: 0.85rem; }
   .section-heading { font-size: clamp(2rem, 9vw, 2.8rem); }
-  .section-sub { font-size: 0.88rem; }
-  .exp-card-inner { padding: 1.25rem; gap: 0.55rem; }
-  .exp-card { border-radius: 16px; }
-  .exp-title { font-size: clamp(0.95rem, 4vw, 1.1rem); }
-  .exp-desc { font-size: 0.82rem; }
-  .exp-icon { font-size: 1.3rem; }
-  .exp-period { font-size: 0.72rem; }
-  .exp-meta { gap: 0.5rem; }
-  .section-header { margin-bottom: 2rem; }
+  .section-sub     { font-size: 0.88rem; }
+  .exp-card        { border-radius: 16px; }
+  .exp-card-inner  { padding: 1.25rem; gap: 0.6rem; }
+  .exp-title       { font-size: clamp(0.95rem, 4vw, 1.1rem); }
+  .exp-desc        { font-size: 0.84rem; }
+  .exp-icon        { font-size: 1.35rem; }
+  .exp-period      { font-size: 0.74rem; }
+  .exp-location    { font-size: 0.68rem; }
+  .exp-meta        { gap: 0.5rem; }
+  .exp-tag         { font-size: 0.6rem; padding: 0.15rem 0.45rem; }
+  .exp-highlights  { gap: 0.35rem; }
 }
 
 @media (max-width: 380px) {
-  .exp-card-inner { padding: 1rem; }
-  .exp-title { font-size: 0.9rem; }
-  .exp-desc { font-size: 0.78rem; }
-  .exp-highlights { gap: 0.3rem; }
-  .exp-tag { font-size: 0.58rem; padding: 0.15rem 0.4rem; }
+  .exp-card-inner { padding: 1rem; gap: 0.5rem; }
+  .exp-title      { font-size: 0.9rem; }
+  .exp-desc       { font-size: 0.79rem; }
+  .exp-tag        { font-size: 0.57rem; padding: 0.12rem 0.38rem; }
 }
 </style>

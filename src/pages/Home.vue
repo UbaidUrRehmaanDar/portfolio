@@ -68,15 +68,11 @@
       <ContactSection :isSection="true" />
     </section>
 
-    <!-- ── NAV ── -->
-    <BottomBar />
-
   </div>
 </template>
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
-import BottomBar           from '../components/BottomBar.vue'
 import StorytellingSection from '../components/StorytellingSection.vue'
 import Ticker              from '../components/Ticker.vue'
 import ProjectsSection     from './Projects.vue'
