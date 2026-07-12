@@ -318,15 +318,34 @@ function goHome() { router.push('/') }
 @media (max-width: 900px) {
   .about-grid {
     grid-template-columns: 1fr;
-    gap: 3rem;
+    gap: 2.5rem;
   }
   .about-visual { min-height: 360px; }
   .portrait-frame { width: 220px; height: 270px; }
+  .about-wrap { padding: 1rem 0 3rem; }
+  .about-heading { font-size: clamp(2.4rem, 7vw, 3.5rem); margin-bottom: 1.5rem; }
 }
 
 @media (max-width: 640px) {
-  .about-heading { font-size: clamp(2.2rem, 10vw, 3rem); }
-  .sb-1, .sb-3 { left: 0; }
-  .sb-2, .sb-4 { right: 0; }
+  .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .about-heading { font-size: clamp(2rem, 9vw, 2.8rem); }
+  .about-visual { min-height: 300px; order: -1; }
+  .portrait-frame { width: 180px; height: 220px; }
+  .about-body p { font-size: 0.92rem; }
+  .back-btn { margin-bottom: 2rem; }
+  .sb-1 { top: 8%; left: 2%; }
+  .sb-2 { top: 25%; right: 2%; }
+  .sb-3 { bottom: 32%; left: 2%; }
+  .sb-4 { bottom: 10%; right: 2%; }
+  .about-links { gap: 0.5rem; }
+  .link-pill { padding: 0.45rem 0.85rem; font-size: 0.75rem; }
+}
+
+@media (max-width: 380px) {
+  .about-heading { font-size: clamp(1.6rem, 8vw, 2rem); }
+  .portrait-frame { width: 150px; height: 185px; }
+  .about-visual { min-height: 240px; }
+  .skill-badge { font-size: 0.65rem; padding: 0.3rem 0.6rem; }
+  .skill-badge .material-icons { font-size: 0.8rem; }
 }
 </style>

@@ -194,7 +194,25 @@ const experiences = [
 .fade-up-enter-from   { opacity: 0; transform: translateY(32px); }
 
 @media (max-width: 640px) {
-  .exp-grid { grid-template-columns: 1fr; }
-  .section-heading { font-size: clamp(2.2rem, 10vw, 3rem); }
+  .exp-wrap { padding: 1rem 0 3rem; }
+  .exp-grid { grid-template-columns: 1fr; gap: 0.85rem; }
+  .section-heading { font-size: clamp(2rem, 9vw, 2.8rem); }
+  .section-sub { font-size: 0.88rem; }
+  .exp-card-inner { padding: 1.25rem; gap: 0.55rem; }
+  .exp-card { border-radius: 16px; }
+  .exp-title { font-size: clamp(0.95rem, 4vw, 1.1rem); }
+  .exp-desc { font-size: 0.82rem; }
+  .exp-icon { font-size: 1.3rem; }
+  .exp-period { font-size: 0.72rem; }
+  .exp-meta { gap: 0.5rem; }
+  .section-header { margin-bottom: 2rem; }
+}
+
+@media (max-width: 380px) {
+  .exp-card-inner { padding: 1rem; }
+  .exp-title { font-size: 0.9rem; }
+  .exp-desc { font-size: 0.78rem; }
+  .exp-highlights { gap: 0.3rem; }
+  .exp-tag { font-size: 0.58rem; padding: 0.15rem 0.4rem; }
 }
 </style>

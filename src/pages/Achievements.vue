@@ -153,7 +153,21 @@ const achievements = [
 .fade-up-enter-from   { opacity: 0; transform: translateY(32px); }
 
 @media (max-width: 640px) {
-  .ach-grid { grid-template-columns: 1fr; }
-  .section-heading { font-size: clamp(2.2rem, 10vw, 3rem); }
+  .ach-wrap { padding: 1rem 0 3rem; }
+  .ach-grid { grid-template-columns: 1fr; gap: 0.85rem; }
+  .section-heading { font-size: clamp(2rem, 9vw, 2.8rem); }
+  .section-sub { font-size: 0.88rem; }
+  .ach-card-inner { padding: 1.25rem; gap: 0.55rem; }
+  .ach-card { border-radius: 16px; }
+  .ach-title { font-size: 0.92rem; }
+  .ach-desc { font-size: 0.8rem; }
+  .ach-icon { font-size: 1.3rem; }
+  .section-header { margin-bottom: 2rem; }
+}
+
+@media (max-width: 380px) {
+  .ach-card-inner { padding: 1rem; }
+  .ach-title { font-size: 0.85rem; }
+  .ach-desc { font-size: 0.75rem; }
 }
 </style>

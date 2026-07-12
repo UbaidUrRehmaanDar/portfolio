@@ -125,10 +125,21 @@ defineProps({
 @media (max-width: 768px) {
   .frame-header {
     padding: 0 1.25rem;
-    font-size: 0.7rem;
+    font-size: 0.65rem;
+    height: 48px;
   }
   .fh-center { display: none; }
-  .frame-main { padding: 3rem 1.25rem 5rem; }
-  .frame-footer { left: 1.25rem; }
+  .fh-right { font-size: 0.62rem; }
+  .frame-main { padding: 2.5rem 1rem 4.5rem; }
+  .frame-footer { left: 1.25rem; bottom: 1.25rem; }
+  .page-num { font-size: 0.65rem; }
+}
+
+@media (max-width: 400px) {
+  .frame-header { padding: 0 0.75rem; font-size: 0.6rem; height: 44px; }
+  .fh-text { max-width: 80px; }
+  .fh-right { max-width: 80px; }
+  .frame-main { padding: 2rem 0.75rem 4rem; }
+  .frame-footer { left: 0.75rem; bottom: 1rem; }
 }
 </style>

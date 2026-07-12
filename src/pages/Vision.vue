@@ -164,9 +164,25 @@ const principles = [
 .fade-up-enter-from   { opacity: 0; transform: translateY(32px); }
 
 @media (max-width: 900px) {
-  .vision-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .vision-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .vision-body p { font-size: 0.92rem; }
+  .principle-card { padding: 0.9rem 1rem; }
 }
 @media (max-width: 640px) {
-  .vision-heading { font-size: clamp(2.2rem, 10vw, 3rem); }
+  .vision-wrap { padding: 1rem 0 3rem; }
+  .vision-heading { font-size: clamp(2rem, 9vw, 2.8rem); margin-bottom: 1.5rem; }
+  .vision-quote { font-size: 0.9rem; padding-left: 0.9rem; }
+  .vision-body { gap: 0.85rem; margin-bottom: 1.5rem; }
+  .vision-body p { font-size: 0.88rem; line-height: 1.6; }
+  .principle-card { padding: 0.8rem 0.9rem; border-radius: 12px; }
+  .principle-label { font-size: 0.78rem; }
+  .principle-desc { font-size: 0.75rem; }
+  .back-btn { margin-bottom: 2rem; }
+}
+
+@media (max-width: 380px) {
+  .vision-heading { font-size: clamp(1.6rem, 8vw, 2.2rem); }
+  .vision-body p { font-size: 0.82rem; }
+  .principle-card { gap: 0.65rem; }
 }
 </style>

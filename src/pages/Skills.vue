@@ -264,7 +264,24 @@ onMounted(() => {
 .fade-up-enter-from   { opacity: 0; transform: translateY(32px); }
 
 @media (max-width: 640px) {
-  .skills-grid { grid-template-columns: 1fr; }
-  .section-heading { font-size: clamp(2.2rem, 10vw, 3rem); }
+  .skills-wrap { padding: 1rem 0 3rem; }
+  .skills-grid { grid-template-columns: 1fr; gap: 1rem; }
+  .section-heading { font-size: clamp(2rem, 9vw, 2.8rem); }
+  .section-sub { font-size: 0.88rem; }
+  .skill-group { padding: 1.25rem; border-radius: 16px; }
+  .group-header { margin-bottom: 1rem; }
+  .group-title { font-size: 0.9rem; }
+  .pill-name { font-size: 0.75rem; }
+  .skill-pills { gap: 0.7rem; }
+  .skills-note { font-size: 0.8rem; }
+  .section-header { margin-bottom: 2rem; }
+}
+
+@media (max-width: 380px) {
+  .skill-group { padding: 1rem; }
+  .group-header { gap: 0.45rem; }
+  .group-icon { font-size: 1rem; }
+  .group-title { font-size: 0.82rem; }
+  .pill-name { font-size: 0.7rem; }
 }
 </style>

@@ -171,9 +171,25 @@ const contactItems = [
 .fade-up-enter-from   { opacity: 0; transform: translateY(32px); }
 
 @media (max-width: 900px) {
-  .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .contact-tagline { font-size: 0.92rem; }
 }
 @media (max-width: 640px) {
-  .contact-heading { font-size: clamp(2.2rem, 10vw, 3rem); }
+  .contact-wrap { padding: 1rem 0 3rem; }
+  .contact-heading { font-size: clamp(2rem, 9vw, 2.8rem); margin-bottom: 1rem; }
+  .contact-tagline { font-size: 0.88rem; max-width: 100%; }
+  .info-row { padding: 0.8rem 1rem; border-radius: 12px; gap: 0.75rem; }
+  .info-icon-wrap { width: 32px; height: 32px; border-radius: 8px; }
+  .info-icon-wrap .material-icons { font-size: 0.95rem; }
+  .info-label { font-size: 0.62rem; }
+  .info-value { font-size: 0.82rem; }
+  .back-btn { margin-bottom: 2rem; }
+  .contact-footer { font-size: 0.68rem; }
+}
+
+@media (max-width: 380px) {
+  .contact-heading { font-size: clamp(1.6rem, 8vw, 2.2rem); }
+  .info-row { padding: 0.65rem 0.8rem; }
+  .info-value { font-size: 0.75rem; word-break: break-all; }
 }
 </style>

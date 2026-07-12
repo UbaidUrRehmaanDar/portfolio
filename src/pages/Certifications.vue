@@ -170,7 +170,22 @@ const certifications = [
 .fade-up-enter-from   { opacity: 0; transform: translateY(32px); }
 
 @media (max-width: 640px) {
-  .cert-grid { grid-template-columns: 1fr; }
-  .section-heading { font-size: clamp(2.2rem, 10vw, 3rem); }
+  .cert-wrap { padding: 1rem 0 3rem; }
+  .cert-grid { grid-template-columns: 1fr; gap: 0.85rem; }
+  .section-heading { font-size: clamp(2rem, 9vw, 2.8rem); }
+  .section-sub { font-size: 0.88rem; }
+  .cert-card-inner { padding: 1.25rem; gap: 0.55rem; }
+  .cert-card { border-radius: 16px; }
+  .cert-title { font-size: 0.92rem; }
+  .cert-desc { font-size: 0.8rem; }
+  .cert-icon { font-size: 1.3rem; }
+  .cert-badge { font-size: 0.58rem; padding: 0.15rem 0.4rem; }
+  .section-header { margin-bottom: 2rem; }
+}
+
+@media (max-width: 380px) {
+  .cert-card-inner { padding: 1rem; }
+  .cert-title { font-size: 0.85rem; }
+  .cert-desc { font-size: 0.75rem; }
 }
 </style>

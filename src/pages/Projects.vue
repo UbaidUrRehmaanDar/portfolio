@@ -168,6 +168,7 @@ const projects = [
     tags: ['React 18','Supabase','PostgreSQL','Framer Motion'],
     desc: 'Full-stack platform centralizing academic, professional, cultural, and extracurricular events from multiple universities into a single discovery hub. Features 4 user roles with RLS, event moderation workflow, registrations, saved events, comments, likes, organizer applications, and event submission with approval pipeline.',
     code: 'https://github.com/UbaidUrRehmaanDar',
+    demo: 'https://mela-swart.vercel.app/',
     date: 'June 2026',
     gallery: 'mela',
   },
@@ -439,9 +440,36 @@ function nextImage() { if (currentImageIndex.value < currentProject.value.images
 @media (max-width: 900px) {
   .card-featured { grid-column: span 1; }
   .gallery-modal { width: 96vw; }
+  .projects-grid { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
 }
 @media (max-width: 640px) {
-  .projects-grid { grid-template-columns: 1fr; }
-  .docs-modal { width: 96vw; }
+  .section-heading { font-size: clamp(2rem, 10vw, 2.8rem); }
+  .section-sub { font-size: 0.88rem; }
+  .projects-grid { grid-template-columns: 1fr; gap: 0.85rem; }
+  .card-inner { padding: 1.25rem; gap: 0.7rem; }
+  .card-title { font-size: clamp(1rem, 4.5vw, 1.2rem); }
+  .card-desc { font-size: 0.82rem; }
+  .card-tag { font-size: 0.58rem; padding: 0.15rem 0.4rem; }
+  .action-btn { font-size: 0.68rem; padding: 0.3rem 0.65rem; }
+  .project-card { border-radius: 16px; }
+  .back-btn { margin-bottom: 2rem; }
+  .section-header { margin-bottom: 2rem; }
+  .gallery-inner { padding: 1.25rem; }
+  .gallery-stage { gap: 0.5rem; }
+  .gallery-nav { width: 32px; height: 32px; }
+  .gallery-nav svg { width: 16px; height: 16px; }
+  .gallery-thumb { width: 52px; height: 38px; }
+  .gallery-thumbs { gap: 0.4rem; padding-top: 2rem; }
+  .modal-title { font-size: 1.1rem; }
+  .docs-inner { padding: 1.25rem; }
+  .modal-box { max-width: 100vw; border-radius: 16px; }
+}
+
+@media (max-width: 380px) {
+  .card-inner { padding: 1rem; gap: 0.6rem; }
+  .card-actions { gap: 0.35rem; }
+  .action-btn { font-size: 0.62rem; padding: 0.25rem 0.5rem; }
+  .gallery-thumbs { gap: 0.3rem; }
+  .gallery-thumb { width: 40px; height: 30px; }
 }
 </style>
