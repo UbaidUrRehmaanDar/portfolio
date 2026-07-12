@@ -100,7 +100,7 @@ const certifications = [
 .cert-wrap {
   width: 100%;
   max-width: 1100px;
-  padding: 1rem 0 4rem;
+  padding: 1rem 0 2rem;
 }
 
 .section-header { margin-bottom: 3rem; }
@@ -170,22 +170,22 @@ const certifications = [
 
 /* ── Mobile ── */
 @media (max-width: 640px) {
-  .cert-wrap       { padding: 0.75rem 0 2rem; }
-  .section-header   { margin-bottom: 2rem; }
-  .cert-grid        { grid-template-columns: 1fr; gap: 0.85rem; }
-  .section-heading  { font-size: clamp(2rem, 9vw, 2.8rem); }
-  .section-sub      { font-size: 0.88rem; }
-  .cert-card        { border-radius: 16px; }
-  .cert-card-inner  { padding: 1.25rem; gap: 0.6rem; }
-  .cert-title       { font-size: 0.95rem; }
-  .cert-desc        { font-size: 0.82rem; }
-  .cert-icon        { font-size: 1.35rem; }
-  .cert-badge       { font-size: 0.6rem; padding: 0.15rem 0.45rem; }
+  .cert-wrap        { padding: 0.5rem 0 1rem; }
+  .section-header   { margin-bottom: 1.75rem; }
+  .cert-grid        { grid-template-columns: 1fr; gap: 0.75rem; }
+  .section-heading  { font-size: clamp(2rem, 9.5vw, 2.8rem); }
+  .section-sub      { font-size: 0.86rem; max-width: 100%; }
+  .cert-card        { border-radius: 14px; }
+  .cert-card-inner  { padding: 1.15rem; gap: 0.55rem; }
+  .cert-title       { font-size: 0.93rem; }
+  .cert-desc        { font-size: 0.81rem; }
+  .cert-icon        { font-size: 1.3rem; }
+  .cert-badge       { font-size: 0.58rem; padding: 0.14rem 0.42rem; }
 }
 
 @media (max-width: 380px) {
-  .cert-card-inner { padding: 1rem; gap: 0.5rem; }
-  .cert-title      { font-size: 0.88rem; }
-  .cert-desc       { font-size: 0.77rem; }
+  .cert-card-inner { padding: 0.95rem; gap: 0.45rem; }
+  .cert-title      { font-size: 0.86rem; }
+  .cert-desc       { font-size: 0.75rem; }
 }
 </style>

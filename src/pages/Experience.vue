@@ -98,7 +98,7 @@ const experiences = [
 .exp-wrap {
   width: 100%;
   max-width: 1100px;
-  padding: 1rem 0 4rem;
+  padding: 1rem 0 2rem;
 }
 
 .section-header { margin-bottom: 3rem; }
@@ -189,27 +189,27 @@ const experiences = [
 
 /* ── Mobile ── */
 @media (max-width: 640px) {
-  .exp-wrap       { padding: 0.75rem 0 2rem; }
-  .section-header  { margin-bottom: 2rem; }
-  .exp-grid        { grid-template-columns: 1fr; gap: 0.85rem; }
-  .section-heading { font-size: clamp(2rem, 9vw, 2.8rem); }
-  .section-sub     { font-size: 0.88rem; }
-  .exp-card        { border-radius: 16px; }
-  .exp-card-inner  { padding: 1.25rem; gap: 0.6rem; }
-  .exp-title       { font-size: clamp(0.95rem, 4vw, 1.1rem); }
-  .exp-desc        { font-size: 0.84rem; }
-  .exp-icon        { font-size: 1.35rem; }
-  .exp-period      { font-size: 0.74rem; }
-  .exp-location    { font-size: 0.68rem; }
-  .exp-meta        { gap: 0.5rem; }
-  .exp-tag         { font-size: 0.6rem; padding: 0.15rem 0.45rem; }
-  .exp-highlights  { gap: 0.35rem; }
+  .exp-wrap        { padding: 0.5rem 0 1rem; }
+  .section-header  { margin-bottom: 1.75rem; }
+  .exp-grid        { grid-template-columns: 1fr; gap: 0.75rem; }
+  .section-heading { font-size: clamp(2rem, 9.5vw, 2.8rem); }
+  .section-sub     { font-size: 0.86rem; max-width: 100%; }
+  .exp-card        { border-radius: 14px; }
+  .exp-card-inner  { padding: 1.15rem; gap: 0.55rem; }
+  .exp-title       { font-size: clamp(0.93rem, 4vw, 1.05rem); }
+  .exp-desc        { font-size: 0.82rem; }
+  .exp-icon        { font-size: 1.3rem; }
+  .exp-period      { font-size: 0.72rem; }
+  .exp-location    { font-size: 0.66rem; }
+  .exp-meta        { gap: 0.4rem; }
+  .exp-tag         { font-size: 0.58rem; padding: 0.13rem 0.42rem; }
+  .exp-highlights  { gap: 0.3rem; }
 }
 
 @media (max-width: 380px) {
-  .exp-card-inner { padding: 1rem; gap: 0.5rem; }
-  .exp-title      { font-size: 0.9rem; }
-  .exp-desc       { font-size: 0.79rem; }
-  .exp-tag        { font-size: 0.57rem; padding: 0.12rem 0.38rem; }
+  .exp-card-inner { padding: 0.95rem; gap: 0.48rem; }
+  .exp-title      { font-size: 0.88rem; }
+  .exp-desc       { font-size: 0.77rem; }
+  .exp-tag        { font-size: 0.55rem; padding: 0.1rem 0.36rem; }
 }
 </style>

@@ -8,15 +8,13 @@
     <transition name="fade-up">
       <div class="about-wrap" v-if="show">
 
-        <!-- Back -->
-        <button class="back-btn" @click="goHome" aria-label="Back">
+        <button class="back-btn" type="button" @click="goHome" aria-label="Back">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
             <path d="M19 12H5M12 5l-7 7 7 7" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
           <span>Back</span>
         </button>
 
-        <!-- Two-column layout -->
         <div class="about-grid">
 
           <!-- Left: text -->
@@ -52,72 +50,42 @@
 
             <div class="about-links">
               <a href="https://github.com/UbaidUrRehmaanDar" target="_blank" rel="noopener" class="link-pill">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
-                </svg>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
                 GitHub
               </a>
               <a href="https://www.linkedin.com/in/ubaid-ur-rehman-dar-74a56429a/" target="_blank" rel="noopener" class="link-pill">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                </svg>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
                 LinkedIn
               </a>
             </div>
           </div>
 
-          <!-- Right: portrait + skill badges -->
+          <!-- Right: portrait -->
           <div class="about-visual">
             <div class="portrait-frame">
               <img src="/images/portfolio/my-image-1.jpg" alt="Obaid Ur Rehman Dar" class="portrait-img" />
             </div>
 
-            <!-- Floating skill badges — desktop only, inline row on mobile -->
+            <!-- Floating badges — desktop only -->
             <div class="skill-badges-desktop">
-              <div class="skill-badge sb-1">
-                <span class="material-icons">code</span>
-                <span>Frontend</span>
-              </div>
-              <div class="skill-badge sb-2">
-                <span class="material-icons">design_services</span>
-                <span>UI/UX</span>
-              </div>
-              <div class="skill-badge sb-3">
-                <span class="material-icons">animation</span>
-                <span>GSAP</span>
-              </div>
-              <div class="skill-badge sb-4">
-                <span class="material-icons">web</span>
-                <span>Vue · React</span>
-              </div>
+              <div class="skill-badge sb-1"><span class="material-icons">code</span><span>Frontend</span></div>
+              <div class="skill-badge sb-2"><span class="material-icons">design_services</span><span>UI/UX</span></div>
+              <div class="skill-badge sb-3"><span class="material-icons">animation</span><span>GSAP</span></div>
+              <div class="skill-badge sb-4"><span class="material-icons">web</span><span>Vue · React</span></div>
             </div>
 
-            <!-- Mobile: inline badge row below portrait -->
+            <!-- Inline badges — mobile only -->
             <div class="skill-badges-mobile">
-              <div class="skill-badge-inline">
-                <span class="material-icons">code</span>
-                <span>Frontend</span>
-              </div>
-              <div class="skill-badge-inline">
-                <span class="material-icons">design_services</span>
-                <span>UI/UX</span>
-              </div>
-              <div class="skill-badge-inline">
-                <span class="material-icons">animation</span>
-                <span>GSAP</span>
-              </div>
-              <div class="skill-badge-inline">
-                <span class="material-icons">web</span>
-                <span>Vue · React</span>
-              </div>
+              <div class="skill-badge-inline"><span class="material-icons">code</span><span>Frontend</span></div>
+              <div class="skill-badge-inline"><span class="material-icons">design_services</span><span>UI/UX</span></div>
+              <div class="skill-badge-inline"><span class="material-icons">animation</span><span>GSAP</span></div>
+              <div class="skill-badge-inline"><span class="material-icons">web</span><span>Vue · React</span></div>
             </div>
           </div>
 
         </div>
-
       </div>
     </transition>
-
   </Frame>
 </template>
 
@@ -133,7 +101,6 @@ const show   = ref(false)
 onMounted(() => {
   setTimeout(() => {
     show.value = true
-    // Only float badges on desktop
     if (window.innerWidth > 640) {
       gsap.to('.sb-1', { y: -10, duration: 3.0, repeat: -1, yoyo: true, ease: 'sine.inOut' })
       gsap.to('.sb-2', { y: -13, duration: 4.2, repeat: -1, yoyo: true, ease: 'sine.inOut', delay: 0.6 })
@@ -147,40 +114,25 @@ function goHome() { router.push('/') }
 </script>
 
 <style scoped>
-/* ── Wrapper ── */
 .about-wrap {
   width: 100%;
   max-width: 1100px;
-  padding: 1rem 0 4rem;
-  position: relative;
+  padding: 1rem 0 2rem;
 }
 
-/* ── Back button ── */
 .back-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
+  display: inline-flex; align-items: center; gap: 0.45rem;
   background: transparent;
   border: 1px solid var(--border, rgba(25,18,101,0.12));
-  border-radius: 999px;
-  padding: 0.4rem 0.9rem;
+  border-radius: 999px; padding: 0.4rem 0.9rem;
   font-family: var(--font-body, 'Urbanist', sans-serif);
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--muted, #66628D);
-  margin-bottom: 3rem;
-  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-  cursor: pointer;
+  font-size: 0.78rem; font-weight: 600; letter-spacing: 0.04em;
+  text-transform: uppercase; color: var(--muted, #66628D);
+  margin-bottom: 2.5rem; cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
 }
-.back-btn:hover {
-  background: rgba(25,18,101,0.06);
-  color: var(--brand, #191265);
-  border-color: var(--brand, #191265);
-}
+.back-btn:hover { background: rgba(25,18,101,0.06); color: var(--brand, #191265); border-color: var(--brand, #191265); }
 
-/* ── Two-column grid ── */
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -188,218 +140,150 @@ function goHome() { router.push('/') }
   align-items: center;
 }
 
-/* ── Left: text ── */
 .section-eyebrow {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+  display: flex; align-items: center; gap: 0.5rem;
   font-family: var(--font-body, 'Urbanist', sans-serif);
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--muted, #66628D);
-  margin-bottom: 1.5rem;
+  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--muted, #66628D);
+  margin-bottom: 1.25rem;
 }
-.eyebrow-dot {
-  width: 5px; height: 5px; border-radius: 50%;
-  background: var(--brand, #191265); opacity: 0.5;
-}
+.eyebrow-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--brand, #191265); opacity: 0.5; }
 
 .about-heading {
   font-family: var(--font-display, 'Syne', sans-serif);
-  font-size: clamp(2.8rem, 5.5vw, 4.5rem);
-  font-weight: 800;
-  line-height: 1.0;
-  letter-spacing: -0.025em;
-  color: var(--brand, #191265);
-  text-transform: uppercase;
-  margin-bottom: 2rem;
+  font-size: clamp(2.6rem, 5.5vw, 4.5rem);
+  font-weight: 800; line-height: 1.0; letter-spacing: -0.025em;
+  color: var(--brand, #191265); text-transform: uppercase;
+  margin-bottom: 1.75rem;
 }
-.heading-outline {
-  color: transparent;
-  -webkit-text-stroke: 2px var(--brand, #191265);
-}
+.heading-outline { color: transparent; -webkit-text-stroke: 2px var(--brand, #191265); }
 
 .about-body {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  margin-bottom: 2.5rem;
+  display: flex; flex-direction: column; gap: 0.9rem;
+  margin-bottom: 2rem;
 }
 .about-body p {
   font-family: var(--font-body, 'Urbanist', sans-serif);
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.7;
-  color: var(--muted, #66628D);
+  font-size: 0.95rem; line-height: 1.7; color: var(--muted, #66628D);
 }
-.about-body strong {
-  font-weight: 600;
-  color: var(--brand, #191265);
-}
+.about-body strong { font-weight: 600; color: var(--brand, #191265); }
 
-.about-links {
-  display: flex;
-  gap: 0.75rem;
-  flex-wrap: wrap;
-}
+.about-links { display: flex; gap: 0.65rem; flex-wrap: wrap; }
 .link-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  padding: 0.55rem 1.1rem;
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  padding: 0.5rem 1rem;
   border: 1.5px solid var(--border, rgba(25,18,101,0.15));
   border-radius: 999px;
   font-family: var(--font-body, 'Urbanist', sans-serif);
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: var(--brand, #191265);
+  font-size: 0.8rem; font-weight: 600; color: var(--brand, #191265);
   text-decoration: none;
-  transition: background 0.22s ease, border-color 0.22s ease, color 0.22s ease;
+  transition: background 0.22s, border-color 0.22s, color 0.22s;
 }
-.link-pill:hover {
-  background: var(--brand, #191265);
-  color: #EBEBDF;
-  border-color: var(--brand, #191265);
-}
+.link-pill:hover { background: var(--brand, #191265); color: #EBEBDF; border-color: var(--brand, #191265); }
 
-/* ── Right: visual ── */
+/* ── Visual column ── */
 .about-visual {
   position: relative;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 480px;
+  min-height: 440px;
 }
 
 .portrait-frame {
-  width: 280px;
-  height: 340px;
-  border-radius: 24px;
-  overflow: hidden;
+  width: 280px; height: 340px;
+  border-radius: 24px; overflow: hidden;
   border: 1px solid var(--border, rgba(25,18,101,0.12));
   box-shadow: 0 20px 60px rgba(25,18,101,0.10);
-  position: relative;
-  z-index: 2;
-  flex-shrink: 0;
+  position: relative; z-index: 2; flex-shrink: 0;
 }
-.portrait-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
+.portrait-img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-/* ── Desktop floating badges ── */
+/* Desktop floating badges */
 .skill-badges-desktop { display: contents; }
 .skill-badges-mobile  { display: none; }
 
 .skill-badge {
   position: absolute;
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.45rem 0.9rem;
-  border-radius: 999px;
-  background: var(--surface, rgba(255,255,255,0.55));
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  display: flex; align-items: center; gap: 0.4rem;
+  padding: 0.4rem 0.85rem; border-radius: 999px;
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--border, rgba(25,18,101,0.12));
   font-family: var(--font-body, 'Urbanist', sans-serif);
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: var(--brand, #191265);
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.05em;
+  text-transform: uppercase; color: var(--brand, #191265);
   box-shadow: 0 4px 16px rgba(25,18,101,0.06);
-  white-space: nowrap;
-  z-index: 5;
+  white-space: nowrap; z-index: 5;
 }
-.skill-badge .material-icons { font-size: 0.95rem; color: var(--brand-2, #2D258D); }
+.skill-badge .material-icons { font-size: 0.9rem; color: var(--brand-2, #2D258D); }
+.sb-1 { top: 8%;    left: -8%; }
+.sb-2 { top: 28%;   right: -10%; }
+.sb-3 { bottom: 26%; left: -10%; }
+.sb-4 { bottom: 10%; right: -8%; }
 
-.sb-1 { top: 10%;  left: -5%; }
-.sb-2 { top: 30%;  right: -8%; }
-.sb-3 { bottom: 28%; left: -8%; }
-.sb-4 { bottom: 12%; right: -5%; }
-
-/* ── Transition ── */
+/* ── Transitions ── */
 .fade-up-enter-active { transition: all 0.4s cubic-bezier(0.16,1,0.3,1); }
 .fade-up-enter-from   { opacity: 0; transform: translateY(32px); }
 
 /* ── Tablet ── */
 @media (max-width: 900px) {
-  .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-  .about-visual { min-height: 360px; }
-  .portrait-frame { width: 220px; height: 270px; }
-  .about-wrap { padding: 1rem 0 3rem; }
-  .about-heading { font-size: clamp(2.4rem, 7vw, 3.5rem); margin-bottom: 1.5rem; }
+  .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .about-visual { min-height: 340px; }
+  .portrait-frame { width: 220px; height: 268px; }
+  .about-heading { font-size: clamp(2.4rem, 7vw, 3.5rem); }
 }
 
 /* ── Mobile ── */
 @media (max-width: 640px) {
-  .about-wrap { padding: 0.75rem 0 2rem; }
-  .back-btn   { margin-bottom: 1.5rem; }
+  .about-wrap  { padding: 0.5rem 0 1rem; }
+  .back-btn    { margin-bottom: 1.5rem; font-size: 0.72rem; }
 
-  .about-grid {
-    grid-template-columns: 1fr;
-    gap: 1.75rem;
-  }
+  .about-grid  { grid-template-columns: 1fr; gap: 1.75rem; }
 
-  /* Portrait section comes first on mobile */
+  /* portrait first on mobile */
   .about-visual {
     order: -1;
     min-height: 0;
-    flex-direction: column;
-    gap: 1rem;
-    align-items: center;
+    gap: 0.85rem;
   }
 
   .portrait-frame {
     width: 100%;
-    max-width: 320px;
-    height: 240px;
-    border-radius: 20px;
+    max-width: 300px;
+    height: 220px;
+    border-radius: 18px;
   }
 
-  /* Hide absolute-positioned desktop badges */
+  /* hide absolute badges, show inline row */
   .skill-badges-desktop { display: none; }
-
-  /* Show inline badge row on mobile */
   .skill-badges-mobile {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    justify-content: center;
+    display: flex; flex-wrap: wrap; gap: 0.45rem;
+    justify-content: center; width: 100%;
   }
-
   .skill-badge-inline {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.3rem;
-    padding: 0.3rem 0.7rem;
-    border-radius: 999px;
+    display: inline-flex; align-items: center; gap: 0.28rem;
+    padding: 0.28rem 0.65rem; border-radius: 999px;
     background: rgba(255,255,255,0.6);
     border: 1px solid var(--border, rgba(25,18,101,0.12));
     font-family: var(--font-body, 'Urbanist', sans-serif);
-    font-size: 0.68rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: var(--brand, #191265);
+    font-size: 0.65rem; font-weight: 700; letter-spacing: 0.05em;
+    text-transform: uppercase; color: var(--brand, #191265);
   }
-  .skill-badge-inline .material-icons { font-size: 0.85rem; color: var(--brand-2, #2D258D); }
+  .skill-badge-inline .material-icons { font-size: 0.82rem; color: var(--brand-2, #2D258D); }
 
-  .about-heading { font-size: clamp(2rem, 9vw, 2.8rem); margin-bottom: 1.25rem; }
-  .about-body p  { font-size: 0.9rem; line-height: 1.65; }
-  .about-body    { gap: 0.85rem; margin-bottom: 1.75rem; }
-  .about-links   { gap: 0.5rem; }
-  .link-pill     { padding: 0.45rem 0.85rem; font-size: 0.75rem; }
+  .about-heading { font-size: clamp(2rem, 9.5vw, 2.8rem); margin-bottom: 1.25rem; }
+  .about-body    { gap: 0.75rem; margin-bottom: 1.5rem; }
+  .about-body p  { font-size: 0.88rem; }
+  .about-links   { gap: 0.45rem; }
+  .link-pill     { padding: 0.42rem 0.8rem; font-size: 0.74rem; }
+  .section-eyebrow { margin-bottom: 0.85rem; }
 }
 
 @media (max-width: 380px) {
-  .about-heading { font-size: clamp(1.7rem, 8vw, 2rem); }
-  .portrait-frame { height: 200px; max-width: 280px; }
-  .about-body p  { font-size: 0.84rem; }
+  .about-heading  { font-size: clamp(1.7rem, 9vw, 2.1rem); }
+  .portrait-frame { height: 190px; max-width: 260px; }
+  .about-body p   { font-size: 0.83rem; }
 }
 </style>

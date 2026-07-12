@@ -82,7 +82,7 @@ const achievements = [
 .ach-wrap {
   width: 100%;
   max-width: 1100px;
-  padding: 1rem 0 4rem;
+  padding: 1rem 0 2rem;
 }
 
 .section-header { margin-bottom: 3rem; }
@@ -149,22 +149,22 @@ const achievements = [
 
 /* ── Mobile ── */
 @media (max-width: 640px) {
-  .ach-wrap      { padding: 0.75rem 0 2rem; }
-  .section-header { margin-bottom: 2rem; }
-  .ach-grid      { grid-template-columns: 1fr; gap: 0.85rem; }
-  .section-heading { font-size: clamp(2rem, 9vw, 2.8rem); }
-  .section-sub   { font-size: 0.88rem; }
-  .ach-card      { border-radius: 16px; }
-  .ach-card-inner { padding: 1.25rem; gap: 0.6rem; }
-  .ach-title     { font-size: 0.95rem; }
-  .ach-desc      { font-size: 0.82rem; }
-  .ach-icon      { font-size: 1.35rem; }
-  .ach-year      { font-size: 0.65rem; padding: 0.15rem 0.45rem; }
+  .ach-wrap       { padding: 0.5rem 0 1rem; }
+  .section-header { margin-bottom: 1.75rem; }
+  .ach-grid       { grid-template-columns: 1fr; gap: 0.75rem; }
+  .section-heading { font-size: clamp(2rem, 9.5vw, 2.8rem); }
+  .section-sub    { font-size: 0.86rem; max-width: 100%; }
+  .ach-card       { border-radius: 14px; }
+  .ach-card-inner { padding: 1.15rem; gap: 0.55rem; }
+  .ach-title      { font-size: 0.93rem; }
+  .ach-desc       { font-size: 0.81rem; }
+  .ach-icon       { font-size: 1.3rem; }
+  .ach-year       { font-size: 0.63rem; padding: 0.14rem 0.42rem; }
 }
 
 @media (max-width: 380px) {
-  .ach-card-inner { padding: 1rem; gap: 0.5rem; }
-  .ach-title      { font-size: 0.88rem; }
-  .ach-desc       { font-size: 0.77rem; }
+  .ach-card-inner { padding: 0.95rem; gap: 0.45rem; }
+  .ach-title      { font-size: 0.86rem; }
+  .ach-desc       { font-size: 0.75rem; }
 }
 </style>
