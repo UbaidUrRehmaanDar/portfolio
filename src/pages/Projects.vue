@@ -116,7 +116,7 @@
           </svg>
         </button>
         <div class="docs-inner">
-          <h3 class="modal-title">Smart RC Car — Documentation</h3>
+          <h3 class="modal-title">Smart RC Car › Documentation</h3>
           <div class="docs-body">
             <p><strong>Prepared by:</strong> Obaid Ur Rehman Dar</p>
             <h4>Overview</h4>
@@ -155,16 +155,16 @@ const currentProject      = ref({})
 
 const projects = [
   {
-    title: 'Khetaan — WhatsApp AI Assistant',
+    title: 'Khetaan › WhatsApp AI Assistant',
     tags: ['Python','FastAPI','Gemini AI','WhatsApp API'],
-    desc: 'WhatsApp-native AI bot for Pakistani farmers. Integrated Gemini AI for crop disease diagnosis, weather forecasting, and live mandi prices in Urdu/Roman Urdu. Multi-agent orchestration via FastAPI webhook. Runner-Up at SDG Halshanas Edition II & participant at SOFTEC\'26.',
+    desc: 'WhatsApp-native AI bot for Pakistani farmers. Integrated Gemini AI for crop disease diagnosis, weather forecasting, and live mandi prices in Urdu/Roman Urdu. Multi-agent orchestration via FastAPI webhook. Runner-Up at SDG Halshanas Edition II.',
     code: 'https://github.com/UbaidUrRehmaanDar',
     date: 'May 2026',
     gallery: 'khetaan',
-    award: 'Runner-Up — Halshanas II',
+    award: 'Runner-Up › Halshanas II',
   },
   {
-    title: 'MELA — University Event Discovery',
+    title: 'MELA › University Event Discovery',
     tags: ['React 18','Supabase','PostgreSQL','Framer Motion'],
     desc: 'Full-stack platform centralizing academic, professional, cultural, and extracurricular events from multiple universities into a single discovery hub. Features 4 user roles with RLS, event moderation workflow, registrations, saved events, comments, likes, organizer applications, and event submission with approval pipeline.',
     code: 'https://github.com/UbaidUrRehmaanDar',
@@ -172,7 +172,7 @@ const projects = [
     gallery: 'mela',
   },
   {
-    title: 'ArenaGo — Sports Arena Booking',
+    title: 'ArenaGo › Sports Arena Booking',
     tags: ['React 19','TypeScript','Tailwind','GSAP','Framer Motion'],
     desc: 'Sports arena booking platform MVP for Pakistan — connecting players with football turfs, cricket nets, badminton halls, and basketball courts in Lahore. Dual-role system for players and arena owners with booking management, revenue analytics, availability heatmaps, and scroll-driven animations.',
     code: 'https://github.com/UbaidUrRehmaanDar',
@@ -181,15 +181,16 @@ const projects = [
     gallery: 'arenago',
   },
   {
-    title: 'FairGig — Gig Worker Income Platform',
+    title: 'FairGig › Gig Worker Income Platform',
     tags: ['Nuxt 3','FastAPI','Python','PostgreSQL','Supabase'],
     desc: 'Platform addressing financial transparency for gig workers in Pakistan. Features earnings logging with screenshot verification, worker analytics dashboard, income certificate generation, grievance board for advocates, and statistical anomaly detection for unfair deductions.',
     code: 'https://github.com/UbaidUrRehmaanDar',
+    demo: 'https://fair-gig-six.vercel.app/login',
     date: '2026',
     gallery: 'fairgig',
   },
   {
-    title: 'Chakras — MERN Music Player',
+    title: 'Chakras › MERN Music Player',
     tags: ['React','MongoDB','Express','Node.js','JWT'],
     desc: 'Spotify-inspired music streaming web app built with the MERN stack. Features JWT-authenticated user accounts, static MP3 streaming, browsable music library with modern UI, and responsive design using Tailwind CSS and DaisyUI.',
     code: 'https://github.com/UbaidUrRehmaanDar',
@@ -205,7 +206,7 @@ const projects = [
     gallery: 'diet',
   },
   {
-    title: 'MarketIQ — Financial Dashboard',
+    title: 'MarketIQ › Financial Dashboard',
     tags: ['React 19','Supabase','Finnhub API','OpenAI','Recharts'],
     desc: 'Full-stack financial dashboard with real-time stock quotes via Finnhub WebSocket, portfolio tracker with live P&L, watchlists with price simulation, interactive Recharts, GPT-4o-mini AI analysis, browser-based price alerts, dark/light theme, and PDF portfolio export.',
     code: 'https://github.com/UbaidUrRehmaanDar',
@@ -213,7 +214,7 @@ const projects = [
     gallery: 'marketiq',
   },
   {
-    title: 'Rawty Shawty — Food Website',
+    title: 'Rawty Shawty › Food Website',
     tags: ['Vue 3','Vite','Vue Router','GSAP'],
     desc: 'Modern food/restaurant website built with Vue 3 featuring a visual menu browser across 8 categories with 32 items, auto-rotating image slider for daily deals, a live shopping cart for order placement, and smooth Vue Router navigation.',
     code: 'https://github.com/UbaidUrRehmaanDar',
@@ -306,13 +307,11 @@ function nextImage() { if (currentImageIndex.value < currentProject.value.images
   border-radius: 20px;
   border: 1px solid var(--border, rgba(25,18,101,0.12));
   background: #F8F9FA;
-  transition: transform 0.28s var(--ease-out), border-color 0.22s ease;
+  transition: border 0.22s ease;
   overflow: hidden;
 }
 .project-card:hover {
-  transform: translateY(-4px);
-  border-color: #191265;
-  box-shadow: none;
+  border: 2px solid #191265;
 }
 .card-featured { grid-column: span 2; background: #F8F9FA; }
 

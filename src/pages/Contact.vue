@@ -143,9 +143,9 @@ const contactItems = [
   background: var(--surface, rgba(255,255,255,0.55));
   backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
   text-decoration: none; color: inherit;
-  transition: transform 0.25s var(--ease-out), box-shadow 0.25s ease, border-color 0.25s ease;
+  transition: border 0.22s ease;
 }
-.info-row:hover { transform: translateX(4px); box-shadow: 0 8px 24px rgba(25,18,101,0.08); border-color: rgba(25,18,101,0.22); }
+.info-row:hover { border: 2px solid #191265; }
 
 .info-icon-wrap {
   width: 36px; height: 36px; border-radius: 10px;
@@ -159,7 +159,7 @@ const contactItems = [
 .info-value { font-family: var(--font-body, 'Urbanist', sans-serif); font-size: 0.9rem; font-weight: 500; color: var(--brand, #191265); }
 
 .info-arrow { color: var(--muted, #66628D); opacity: 0.4; flex-shrink: 0; transition: opacity 0.2s, transform 0.2s; }
-.info-row:hover .info-arrow { opacity: 0.8; transform: translateX(3px); }
+.info-row:hover .info-arrow { opacity: 0.8; }
 
 .contact-footer {
   font-family: var(--font-body, 'Urbanist', sans-serif);

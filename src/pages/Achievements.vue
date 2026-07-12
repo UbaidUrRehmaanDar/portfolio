@@ -57,19 +57,19 @@ const achievements = [
   {
     icon: 'emoji_events',
     year: 'May 2026',
-    title: 'Runner-Up — Halshanas Edition II',
+    title: 'Runner-Up › Halshanas Edition II',
     desc: 'Beaconhouse National University (BNU). Khetan project — built on-site in ~6–7 hours with team members Rehan Abrar and Muhammad Mustafa.',
   },
   {
     icon: 'groups',
     year: '2026',
-    title: 'Technoverse 4.0 — Webathon',
+    title: 'Technoverse 4.0 › Webathon',
     desc: 'Smart City Control Dashboard (SCCD). Team participation focused on frontend development, real-time data visualization, and rapid prototyping.',
   },
   {
     icon: 'groups',
     year: '2025–2026',
-    title: 'FAST Software 2026',
+    title: 'SOFTEC\'26',
     desc: 'Fairgig — a web-based platform demonstrating scalable frontend architecture and collaborative development in a competitive environment.',
   },
   {
@@ -118,13 +118,11 @@ const achievements = [
   border: 1px solid var(--border, rgba(25,18,101,0.12));
   background: var(--surface, rgba(255,255,255,0.55));
   backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
-  transition: transform 0.28s var(--ease-out), box-shadow 0.28s ease, border-color 0.28s ease;
+  transition: border 0.22s ease;
   overflow: hidden;
 }
 .ach-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 48px rgba(25,18,101,0.10);
-  border-color: rgba(25,18,101,0.22);
+  border: 2px solid #191265;
 }
 
 .ach-card-inner { padding: 1.75rem; display: flex; flex-direction: column; gap: 0.75rem; height: 100%; }

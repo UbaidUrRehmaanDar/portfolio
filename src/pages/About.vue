@@ -241,14 +241,13 @@ function goHome() { router.push('/') }
   font-size: 0.82rem;
   font-weight: 600;
   color: var(--brand, #191265);
-  transition: background 0.22s ease, border-color 0.22s ease, transform 0.22s var(--ease-out);
+  transition: background 0.22s ease, border-color 0.22s ease;
 }
 
 .link-pill:hover {
   background: var(--brand, #191265);
   color: #EBEBDF;
   border-color: var(--brand, #191265);
-  transform: translateY(-1px);
 }
 
 /* ── Right: visual ── */

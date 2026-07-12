@@ -210,11 +210,10 @@ onMounted(() => {
   border-radius: 20px;
   border: 1px solid var(--border, rgba(25,18,101,0.12));
   background: #F8F9FA;
-  transition: transform 0.28s var(--ease-out), border-color 0.22s ease;
+  transition: border 0.22s ease;
 }
 .skill-group:hover {
-  transform: translateY(-3px);
-  border-color: #191265;
+  border: 2px solid #191265;
 }
 
 .group-header {

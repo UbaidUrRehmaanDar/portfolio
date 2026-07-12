@@ -135,13 +135,11 @@ const certifications = [
   border: 1px solid var(--border, rgba(25,18,101,0.12));
   background: var(--surface, rgba(255,255,255,0.55));
   backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
-  transition: transform 0.28s var(--ease-out), box-shadow 0.28s ease, border-color 0.28s ease;
+  transition: border 0.22s ease;
   overflow: hidden;
 }
 .cert-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 48px rgba(25,18,101,0.10);
-  border-color: rgba(25,18,101,0.22);
+  border: 2px solid #191265;
 }
 
 .cert-card-inner { padding: 1.75rem; display: flex; flex-direction: column; gap: 0.75rem; height: 100%; }

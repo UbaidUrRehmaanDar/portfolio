@@ -78,10 +78,10 @@ const experiences = [
   {
     icon: 'emoji_events',
     type: 'Competition',
-    title: 'Hackathon Participant — Halshanas',
+    title: 'Hackathon Participant › Halshanas',
     period: '2026',
     location: 'BNU & FAST-NUCES',
-    desc: 'Co-developed Khetaan, a WhatsApp AI assistant for farmers, achieving Runner-Up at Halshanas Edition II (BNU) and participating at SOFTEC\'26. Worked with a team to integrate Gemini AI, FastAPI webhooks, and WhatsApp Cloud API under tight deadlines.',
+    desc: 'Co-developed Khetaan, a WhatsApp AI assistant for farmers, achieving Runner-Up at Halshanas Edition II (BNU). Worked with a team to integrate Gemini AI, FastAPI webhooks, and WhatsApp Cloud API under tight deadlines. Also participated at SOFTEC\'26.',
     highlights: ['Team Lead', 'FastAPI', 'Gemini AI', 'WhatsApp API'],
   },
   {
@@ -133,13 +133,11 @@ const experiences = [
   border: 1px solid var(--border, rgba(25,18,101,0.12));
   background: var(--surface, rgba(255,255,255,0.55));
   backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
-  transition: transform 0.28s var(--ease-out), box-shadow 0.28s ease, border-color 0.28s ease;
+  transition: border 0.22s ease;
   overflow: hidden;
 }
 .exp-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 48px rgba(25,18,101,0.10);
-  border-color: rgba(25,18,101,0.22);
+  border: 2px solid #191265;
 }
 
 .exp-card-inner { padding: 1.75rem; display: flex; flex-direction: column; gap: 0.75rem; }

@@ -153,9 +153,9 @@ const principles = [
   border: 1px solid var(--border, rgba(25,18,101,0.12));
   background: var(--surface, rgba(255,255,255,0.55));
   backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
-  transition: transform 0.25s var(--ease-out), box-shadow 0.25s ease;
+  transition: border 0.22s ease;
 }
-.principle-card:hover { transform: translateX(4px); box-shadow: 0 8px 24px rgba(25,18,101,0.08); }
+.principle-card:hover { border: 2px solid #191265; }
 .principle-icon { font-size: 1.2rem; color: var(--brand-2, #2D258D); margin-top: 1px; flex-shrink: 0; }
 .principle-label { font-family: var(--font-display, 'Syne', sans-serif); font-size: 0.85rem; font-weight: 700; color: var(--brand, #191265); letter-spacing: 0.02em; margin-bottom: 0.2rem; }
 .principle-desc { font-size: 0.82rem; color: var(--muted, #66628D); line-height: 1.5; }
